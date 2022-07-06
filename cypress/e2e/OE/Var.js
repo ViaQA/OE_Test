@@ -22,6 +22,7 @@
     export const creds_host = {email_host,email_restore,email_notfount, password_new, email,email_bad, password,password_bad, last_name, first_name, team_name, position, TM_invite, TM_invite_2, host_url, TM_invite_myteam, token, API_Domain} 
 
     let sqr_space = '1258700'
+    let sqr_space_text = '1,258,700'
     let kind_space = 'Corporate office'
     let occup_space = '26-50'
     let floor_total_space = '32'
@@ -30,8 +31,11 @@
     let flor_3 = '3'
     let flor_4 = '7'
     let flor_5 = '21'
+    let order_floor = '7, 18, 25'
     let address_start = '12345'
     let full_address = '12345 Ventura Blvd, North Hollywood, CA 91604, USA'
+    let full_address_ui = '12345 Ventura Blvd, Los Angeles, CA, 91604'
+    let str_addres = '12345 Ventura Blvd'
     let security_dep = '45'
     let security_error = '46'
     let all_price = '55'
@@ -41,8 +45,9 @@
     let start_price = '45'
     let name_space = 'Test space from Cypress Autotest'
     let description_space = 'Description from Cypress autotest, create space description'
+    let text_true = "Available"
 
-    export const creds_space = {security_error, name_space, description_space, all_price_1, security_dep, all_price,office_price, co_price,start_price, full_address, address_start, sqr_space, kind_space, occup_space, floor_total_space, flor_1, flor_2,flor_3, flor_4, flor_5}
+    export const creds_space = {full_address_ui, str_addres, text_true, order_floor,sqr_space_text, security_error, name_space, description_space, all_price_1, security_dep, all_price,office_price, co_price,start_price, full_address, address_start, sqr_space, kind_space, occup_space, floor_total_space, flor_1, flor_2,flor_3, flor_4, flor_5}
 
 
 

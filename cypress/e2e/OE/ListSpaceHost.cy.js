@@ -108,7 +108,7 @@ describe('Check Sign in form', () => {
             "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
         
         cy.xpath('//img[@data-id="8"]').parent().click()
-        cy.xpath('//button[@data-id="9"]').click()
+        cy.xpath('//button[@data-id="9"]').parent().click()
 
         cy.get('[type="submit"]').click()
 
@@ -121,7 +121,8 @@ describe('Check Sign in form', () => {
         cy.get('[name="spaceDescription"]').type(creds_space.description_space)
         cy.get('[type="submit"]').should('be.disabled')
         cy.get('[name="policy"]').click({force: true})
-        //cy.xpath("//a[text()='The Office Exchange terms & conditions']").should('have.attr', 'href="/terms-and-conditions"')
+        // cy.get('[href="/terms-and-conditions]').click()
+        
         
         cy.get('[type="submit"]').click()
         cy.contains('Thank you for listing your space.')
@@ -132,6 +133,33 @@ describe('Check Sign in form', () => {
         }
         
     )
+
+    it('Check created space', () =>{
+        cy.xpath('//span[text()="My account"]').click()
+        cy.get('[data-title="next"]').click()
+        cy.contains(creds_space.name_space).click()
+        cy.contains(creds_space.description_space)
+        cy.xpath('//div[text()="Square ft"]/following-sibling::div').should('have.text', creds_space.sqr_space_text)
+        cy.xpath('//div[text()="Capacity"]/following-sibling::div').should('have.text', creds_space.occup_space)
+        cy.xpath('//div[text()="Floor"]/following-sibling::div').should('have.text', creds_space.order_floor)
+        cy.xpath('//div[text()="Floor"]/following-sibling::div').should('have.text', creds_space.order_floor)
+        cy.xpath('//div[text()="Kitchen"]/following-sibling::div').should('have.text', creds_space.text_true)
+        cy.xpath('//div[text()="Elevators"]/following-sibling::div').should('have.text', creds_space.text_true)
+        cy.xpath('//div[text()="Wifi"]/following-sibling::div').should('have.text', creds_space.text_true)
+        cy.xpath('//div[text()="Parking"]/following-sibling::div').should('have.text', creds_space.text_true)
+        cy.xpath('//div[text()="Bathroom"]/following-sibling::div').should('have.text', creds_space.text_true)
+        cy.contains('8+ more').click()
+        cy.xpath('//div[text()="Meeting rooms"]/following-sibling::div').should('have.text', creds_space.text_true)
+        cy.xpath('//div[text()="Private floor"]/following-sibling::div').should('have.text', creds_space.text_true)
+        cy.xpath('//div[text()="Concierge"]/following-sibling::div').should('have.text', creds_space.text_true)
+        cy.xpath('//div[text()="Security"]/following-sibling::div').should('have.text', creds_space.text_true)
+        cy.xpath('//div[text()="24 hour access"]/following-sibling::div').should('have.text', creds_space.text_true)
+        cy.xpath('//div[text()="Pet friendly"]/following-sibling::div').should('have.text', creds_space.text_true)
+        cy.contains(creds_space.full_address_ui)
+        cy.contains('View all photos').click()
+        cy.contains(creds_space.str_addres).click()
+        
+    })
    
 
 
