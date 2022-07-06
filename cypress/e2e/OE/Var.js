@@ -1,0 +1,65 @@
+    
+// Creds to Pl onboarding test
+    let email = 'andrew.test.mail.25+1800@gmail.com'
+    let email_host = 'andrew.test.mail.25+1800@gmail.com'
+    let email_bad = 'andrew.test.mail.25+12@gmail.com'
+    let email_restore = 'andrew.test.mail.25+200@gmail.com'
+    let email_notfount = 'aaaaaaa@gggg.com'
+    let password_new = 'Qwerty321@'
+    let password = 'Qwerty123@' 
+    let password_bad = 'Qwerty123@111'
+    let last_name = 'Host_Autotest'
+    let first_name = 'Cypress'
+    let team_name = 'TN1rtyuiopasdfghj333'
+    let position = 'Pwertyuiopasdfghj256'
+    let TM_invite = 'andrew.test.mail.25+14@gmail.com' //invited TM
+    let TM_invite_2 = 'andrew.test.mail.25+13@gmail.com' //invited TM
+    let TM_invite_myteam = 'andrew.test.mail.25+8@gmail.com' //invited TM at page my team 
+    let host_url = 'http://localhost:3000' 
+    let token = 'Bearer '+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJldy5idXJ5YW5vdmF0eUBiZWFubWFjaGluZS5kZXYiLCJzdWIiOjc2LCJpYXQiOjE2NDEzODIwNjgsImV4cCI6MTY0MTM4Mzg2OH0.w_LXoU91x7gzxCqoCpywY2Elk9lSr30-_-Kjv7kb9CE';
+    let API_Domain = 'https://api.combinify-dev.xyz';
+
+    export const creds_host = {email_host,email_restore,email_notfount, password_new, email,email_bad, password,password_bad, last_name, first_name, team_name, position, TM_invite, TM_invite_2, host_url, TM_invite_myteam, token, API_Domain} 
+
+    let sqr_space = '1258700'
+    let kind_space = 'Corporate office'
+    let occup_space = '26-50'
+    let floor_total_space = '32'
+    let flor_1 = '25'
+    let flor_2 = '18'
+    let flor_3 = '3'
+    let flor_4 = '7'
+    let flor_5 = '21'
+    let address_start = '12345'
+    let full_address = '12345 Ventura Blvd, North Hollywood, CA 91604, USA'
+    let security_dep = '45'
+    let security_error = '46'
+    let all_price = '55'
+    let all_price_1 = '100'
+    let office_price = '30'
+    let co_price = '40'
+    let start_price = '45'
+    let name_space = 'Test space from Cypress Autotest'
+    let description_space = 'Description from Cypress autotest, create space description'
+
+    export const creds_space = {security_error, name_space, description_space, all_price_1, security_dep, all_price,office_price, co_price,start_price, full_address, address_start, sqr_space, kind_space, occup_space, floor_total_space, flor_1, flor_2,flor_3, flor_4, flor_5}
+
+
+
+// Creds to TM onboarding test
+    let email_TM = 'andrew.test.mail.25+22@gmail.com'
+    let password_TM = 'rW3Sz&3Y' 
+    let last_name_TM = 'LNertyuiopasdfghjklq'
+    let first_name_TM = 'FNertyuiopasdfghjklq'
+    let position_TM = 'Peertyuiopasdfghjklq'
+    export const creds_TM = {email_TM, password_TM, last_name_TM, first_name_TM, position_TM}
+
+    let url_admin = 'https://stage.officeexchange.com'
+    let email_admin = 'andrew.test.mail.25+100500@gmail.com'
+    let password_admin = 'Vj7PUd7z87NDSqV'
+    export const creds_admin = {url_admin, email_admin, password_admin}
+
+    
+
+
+
