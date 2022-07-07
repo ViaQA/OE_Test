@@ -1,9 +1,9 @@
     
-// Creds to Pl onboarding test
-    let email = 'andrew.test.mail.25+1800@gmail.com'
-    let email_host = 'andrew.test.mail.25+1800@gmail.com'
+// Creds to Host onboarding test
+    let email = 'andrew.test.mail.25+100000@gmail.com'
+    let email_host = 'andrew.test.mail.25+100000@gmail.com'
     let email_bad = 'andrew.test.mail.25+12@gmail.com'
-    let email_restore = 'andrew.test.mail.25+200@gmail.com'
+    let email_restore = 'andrew.test.mail.25+220@gmail.com'
     let email_notfount = 'aaaaaaa@gggg.com'
     let password_new = 'Qwerty321@'
     let password = 'Qwerty123@' 
@@ -16,6 +16,7 @@
     let TM_invite_2 = 'andrew.test.mail.25+13@gmail.com' //invited TM
     let TM_invite_myteam = 'andrew.test.mail.25+8@gmail.com' //invited TM at page my team 
     let host_url = 'http://localhost:3000' 
+   // let host_url = 'https://officeexchange.com/' 
     let token = 'Bearer '+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJldy5idXJ5YW5vdmF0eUBiZWFubWFjaGluZS5kZXYiLCJzdWIiOjc2LCJpYXQiOjE2NDEzODIwNjgsImV4cCI6MTY0MTM4Mzg2OH0.w_LXoU91x7gzxCqoCpywY2Elk9lSr30-_-Kjv7kb9CE';
     let API_Domain = 'https://api.combinify-dev.xyz';
 
@@ -64,7 +65,15 @@
     let password_admin = 'Vj7PUd7z87NDSqV'
     export const creds_admin = {url_admin, email_admin, password_admin}
 
-    
 
+    let email_tenant = 'andrew.test.mail.25+100001@gmail.com'
+    let password_tenant = 'Qwerty123@'
+    let book_message = 'test booking current +1 day'
+
+    export const creds_tenant = {book_message, email_tenant, password_tenant} 
+
+
+    
+    
 
 
