@@ -32,6 +32,23 @@ describe('Check Sign in form', () => {
         cy.get('[placeholder="Type your message here "]').type(creds_tenant.book_message)
         cy.get('[type="submit"]').click()
 
+        cy.get('[name="addressLine1"]').click()
+        cy.get('[name="city"]').click()
+        cy.get('[name="postcode"]').click()
+        cy.get('[name="addressLine2"]').click()
+        cy.get('[name="addressLine1"]').should('have.css', 'border', '2px solid rgb(255, 77, 151)')
+        cy.contains(creds_tenant.book_addres_err)
+        cy.get('[name="city"]').should('have.css', 'border', '2px solid rgb(255, 77, 151)')
+        cy.contains(creds_tenant.book_city_err)
+        cy.get('[name="postcode"]').should('have.css', 'border', '2px solid rgb(255, 77, 151)')
+        cy.contains(creds_tenant.book_post_err)
+        cy.get('[name="addressLine1"]').type(creds_tenant.book_addres1)
+        cy.get('[name="city"]').type(creds_tenant.book_city)
+        cy.get('[name="postcode"]').type(creds_tenant.book_post)
+        cy.get('[name="addressLine2"]').type(creds_tenant.book_addres2)
+        cy.get('[type="submit"]').click()
+        //next is Payment info
+
 
 
 

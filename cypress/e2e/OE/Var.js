@@ -69,8 +69,16 @@
     let email_tenant = 'andrew.test.mail.25+100001@gmail.com'
     let password_tenant = 'Qwerty123@'
     let book_message = 'test booking current +1 day'
+    let book_addres_err = 'addressLine1 is a required field'
+    let book_city_err = 'city is a required field'
+    let book_post_err = 'postcode is a required field'
+    let book_addres1 = '123 State St'
+    let book_addres2 = 'Brook'
+    let book_city = 'Schenectady'
+    let book_post = '12345'
 
-    export const creds_tenant = {book_message, email_tenant, password_tenant} 
+    export const creds_tenant = {book_addres1,book_addres2, book_city, book_post, book_addres_err, 
+        book_city_err, book_post_err, book_message, email_tenant, password_tenant} 
 
 
     
