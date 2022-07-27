@@ -73,7 +73,7 @@ describe('Check Sign in form', () => {
         cy.get('[type="submit"]').click()
 
         cy.get('[name="capturePrice"]').type(creds_space.security_error)
-        cy.contains('Sum must be less or equals 45')
+        cy.contains('The security deposit cannot be greater than 1.5 times the cost per day to book.')
 
         cy.get('[name="capturePrice"]').type(creds_space.security_dep)
 
