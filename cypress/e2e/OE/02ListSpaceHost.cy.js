@@ -13,6 +13,8 @@ describe('Check Sign in form', () => {
         cy.get('[type="submit"]').click()
       })
 
+
+
     it('Create new space to listing', () =>{
         cy.xpath('//span[text()="List your space"]').click()
         cy.xpath('//div[text()="Space kind"]/parent::div').click()
@@ -96,20 +98,30 @@ describe('Check Sign in form', () => {
         cy.get('[type="submit"]').click()
 
         cy.get('[name="file"]').parent().selectFile("cypress/fixtures/img_more_10mb.jpg" , {subjectType: 'drag-n-drop'})
-        cy.contains('One or more of the images you tried to upload are too large. Please make sure images are 10mb or less.').should('have.css', 'background-color', 'rgb(255, 17, 0)')
+       
+        cy.contains('Images must be smaller than 10mb.')
+        //.should('have.css', 'background-color', 'rgb(255, 77, 151)')
         
         cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
             "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
             "cypress/fixtures/img6.jpg", "cypress/fixtures/logo.jfif", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
-        cy.contains('You can not upload more than 10 photos at the same time').should('have.css', 'background-color', 'rgb(255, 17, 0)')
+
+        cy.scrollTo('bottom')
+        cy.contains('You cannot upload more than 10 images at a time.')
+        //.should('have.css', 'background-color', 'rgb(255, 77, 151)')
 
         cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
             "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
             "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
         
+        cy.scrollTo('bottom')
+        cy.scrollTo('bottom')
+        cy.scrollTo(0, 500)
         cy.xpath('//img[@data-id="8"]').parent().click()
+        cy.scrollTo(0, 500)
         cy.xpath('//button[@data-id="9"]').parent().click()
-
+        cy.scrollTo('bottom')
+        cy.scrollTo(0, 500)
         cy.get('[type="submit"]').click()
 
         cy.get('[name="spaceName"]').click()

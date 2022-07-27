@@ -1,6 +1,7 @@
     
 // Creds to Host onboarding test
     let email = 'andrew.test.mail.25+100000@gmail.com'
+    
     let email_host = 'andrew.test.mail.25+100000@gmail.com'
     let email_bad = 'andrew.test.mail.25+12@gmail.com'
     let email_restore = 'andrew.test.mail.25+220@gmail.com'

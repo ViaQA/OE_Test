@@ -12,7 +12,7 @@ describe('Check Sign in form', () => {
         cy.get('[type="submit"]').click()
         cy.get('[name="searchQuery"]').type(creds_space.name_space)
         cy.get('[type="submit"]').click()
-        cy.get('[class="card h-100"]').click()
+        cy.get('[class="card h-100"]').click({ multiple: true })
         cy.contains('Approve').click()
         cy.get('[id="featuredSpace_switcher"]').click({force: true})
             }
