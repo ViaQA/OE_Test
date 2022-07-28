@@ -1,5 +1,6 @@
 import {creds_host, creds_space} from './Var';
 import {creds_tenant} from './Var';
+import {card_data} from './Var'
 
 describe('Check Sign in form', () => {
 
@@ -48,7 +49,7 @@ describe('Check Sign in form', () => {
         cy.get('[name="addressLine2"]').type(creds_tenant.book_addres2)
         cy.get('[type="submit"]').click()
         //next is Payment info
-
+        
 
 
 

@@ -81,6 +81,21 @@
     export const creds_tenant = {book_addres1,book_addres2, book_city, book_post, book_addres_err, 
         book_city_err, book_post_err, book_message, email_tenant, password_tenant} 
 
+    let card_visa = '4242424242424242'
+    let card_american = '378282246310005'
+    let cvv_visa = '111'
+    let cvv_american = '1111' 
+    let card_decline = '4000000000000002'
+    let card_stolen = '4000000000009979'
+    let card_expird = '4000000000000069'
+    let card_cvv_decline = '4000000000000127'
+    let card_decline_after = '4000000000000341'
+    let card_faill_refund = '4000000000005126'
+
+    export const card_data = {card_american, card_cvv_decline, card_data, card_decline, card_decline_after, card_expird, card_faill_refund, card_stolen,
+        card_visa, cvv_visa, cvv_american }
+
+
 
     
     
