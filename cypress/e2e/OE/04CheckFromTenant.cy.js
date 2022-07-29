@@ -12,7 +12,7 @@ describe('Check Sign in form', () => {
         cy.get('[type="submit"]').click()
       })
     
-    it("Check from tenant", ()=>{
+    it("Check from tenant booking request for next date", ()=>{
         cy.contains(creds_space.name_space).click()
         let current_date = ''
         current_date = (new Date().getDate())
@@ -49,14 +49,23 @@ describe('Check Sign in form', () => {
         cy.get('[name="addressLine2"]').type(creds_tenant.book_addres2)
         cy.get('[type="submit"]').click()
         //next is Payment info
-        
+        cy.get('[name="cardholderName"]').type(card_data.fullname_card)
+        cy.get('[type="submit"]').should('be.disabled')
+        cy.get('[name="cardNumber"]').type(card_data.card_visa)
+        cy.get('[type="submit"]').should('be.disabled')
+        cy.get('[name="expiryDate"]').type(card_data.expired_date)
+        cy.get('[type="submit"]').should('be.disabled')
+        cy.get('[name="cvv"]').type(card_data.cvv_visa)
 
+        cy.get('[type="submit"]').click()
 
-
-        
-
-
+        cy.contains('Thank you for your booking request!')
+        cy.contains('Go to my account').children().click()
+        cy.url().should('include', '/account/requests')
     })
+
+        
+
 
 
 })

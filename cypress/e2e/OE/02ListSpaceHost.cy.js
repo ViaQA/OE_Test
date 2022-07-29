@@ -114,15 +114,15 @@ describe('Check Sign in form', () => {
             "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
             "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
         
-        cy.scrollTo('bottom')
-        cy.scrollTo('bottom')
+        
         cy.scrollTo(0, 500)
-        cy.xpath('//img[@data-id="8"]').parent().click()
+        cy.wait(8000)
         cy.scrollTo(0, 500)
-        cy.xpath('//button[@data-id="9"]').parent().click()
-        cy.scrollTo('bottom')
-        cy.scrollTo(0, 500)
-        cy.get('[type="submit"]').click()
+        cy.xpath('//img[@data-id="8"]').parent().click({scrollBehavior: true})
+        
+        cy.xpath('//button[@data-id="9"]').parent().click({scrollBehavior: true})
+        
+        cy.get('[type="submit"]').click({scrollBehavior: true})
 
         cy.get('[name="spaceName"]').click()
         cy.get('[name="spaceDescription"]').click()

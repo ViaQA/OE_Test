@@ -91,9 +91,11 @@
     let card_cvv_decline = '4000000000000127'
     let card_decline_after = '4000000000000341'
     let card_faill_refund = '4000000000005126'
+    let fullname_card = 'Test Testers'
+    let expired_date = 1233
 
-    export const card_data = {card_american, card_cvv_decline, card_data, card_decline, card_decline_after, card_expird, card_faill_refund, card_stolen,
-        card_visa, cvv_visa, cvv_american }
+    export const card_data = {card_american, card_cvv_decline, card_decline, card_decline_after, card_expird, card_faill_refund, card_stolen,
+        card_visa, cvv_visa, cvv_american, fullname_card, expired_date }
 
 
 
