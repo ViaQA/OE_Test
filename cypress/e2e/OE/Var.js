@@ -17,11 +17,13 @@
     let TM_invite_2 = 'andrew.test.mail.25+13@gmail.com' //invited TM
     let TM_invite_myteam = 'andrew.test.mail.25+8@gmail.com' //invited TM at page my team 
     let host_url = 'http://localhost:3000' 
+    let cron_script_payment = 'https://stage.officeexchange.com/api/v.1.0/cron-notifications'
    // let host_url = 'https://officeexchange.com/' 
     let token = 'Bearer '+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJldy5idXJ5YW5vdmF0eUBiZWFubWFjaGluZS5kZXYiLCJzdWIiOjc2LCJpYXQiOjE2NDEzODIwNjgsImV4cCI6MTY0MTM4Mzg2OH0.w_LXoU91x7gzxCqoCpywY2Elk9lSr30-_-Kjv7kb9CE';
     let API_Domain = 'https://api.combinify-dev.xyz';
 
-    export const creds_host = {email_host,email_restore,email_notfount, password_new, email,email_bad, password,password_bad, last_name, first_name, team_name, position, TM_invite, TM_invite_2, host_url, TM_invite_myteam, token, API_Domain} 
+    export const creds_host = {email_host,email_restore,email_notfount, password_new, email,email_bad, password,password_bad, 
+        last_name, first_name, team_name, position, TM_invite, TM_invite_2, host_url, TM_invite_myteam, token, API_Domain, cron_script_payment} 
 
     let sqr_space = '1258700'
     let sqr_space_text = '1,258,700'
@@ -38,13 +40,14 @@
     let full_address = '12345 Ventura Blvd, North Hollywood, CA 91604, USA'
     let full_address_ui = '12345 Ventura Blvd, Los Angeles, CA, 91604'
     let str_addres = '12345 Ventura Blvd'
-    let security_dep = '45'
+    let security_dep = 45
     let security_error = '46'
     let all_price = '55'
     let all_price_1 = '100'
     let office_price = '30'
     let co_price = '40'
-    let start_price = '45'
+    let start_price = 45
+   // let start_price_twoday = '90'
     let name_space = 'Test space from Cypress Autotest'
     let description_space = 'Description from Cypress autotest, create space description'
     let text_true = "Available"

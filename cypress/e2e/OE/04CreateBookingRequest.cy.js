@@ -1,6 +1,7 @@
 import {creds_host, creds_space} from './Var';
 import {creds_tenant} from './Var';
-import {card_data} from './Var'
+import {card_data} from './Var';
+
 
 describe('Check Sign in form', () => {
 
@@ -63,9 +64,5 @@ describe('Check Sign in form', () => {
         cy.contains('Go to my account').children().click()
         cy.url().should('include', '/account/requests')
     })
-
-        
-
-
-
+    
 })
