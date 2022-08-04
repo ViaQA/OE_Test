@@ -1,0 +1,10 @@
+Delete space which was created at test
+
+DELETE FROM `spaces`
+WHERE `name` LIKE '%Cypress%'
+
+Delete tenant from Sign Up test
+
+DELETE FROM `users`
+WHERE `email` = 'andrew.test.mail.25+100001@gmail.com'
+

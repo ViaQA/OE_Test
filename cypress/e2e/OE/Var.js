@@ -80,9 +80,12 @@
     let book_addres2 = 'Brook'
     let book_city = 'Schenectady'
     let book_post = '12345'
+    let firstName = "TestTenant"
+    let lastName = "FromCypress"
+    let phoneTenant = 12345557781
 
     export const creds_tenant = {book_addres1,book_addres2, book_city, book_post, book_addres_err, 
-        book_city_err, book_post_err, book_message, email_tenant, password_tenant} 
+        book_city_err, book_post_err, book_message, email_tenant, password_tenant, firstName, lastName, phoneTenant} 
 
     let card_visa = '4242424242424242'
     let card_american = '378282246310005'
