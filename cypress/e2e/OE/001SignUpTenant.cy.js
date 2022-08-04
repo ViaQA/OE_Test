@@ -55,6 +55,7 @@ describe('Check Sign up form', () => {
         cy.xpath('//input[@name="phoneNumber"]/following-sibling::div').should('have.text', 'Phone number must be at least 11 characters')
         cy.get('[name="phoneNumber"]').type(creds_tenant.phoneTenant)
         cy.contains('Next').click()
+        cy.wait(1000)
         cy.xpath('//input').type('111111')
         cy.get('[type="submit"]').click()
         cy.contains('My account')
