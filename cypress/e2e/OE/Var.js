@@ -66,8 +66,8 @@
     let position_TM = 'Peertyuiopasdfghjklq'
     export const creds_TM = {email_TM, password_TM, last_name_TM, first_name_TM, position_TM}
 
-    let url_admin = 'https://stage.officeexchange.com'
-    //let url_admin = 'https://devadmin.officeexchange.com/'
+    //let url_admin = 'https://stage.officeexchange.com'
+    let url_admin = 'https://devadmin.officeexchange.com/'
     let email_admin = 'andrew.test.mail.25+100500@gmail.com'
     let password_admin = 'Vj7PUd7z87NDSqV'
     export const creds_admin = {url_admin, email_admin, password_admin}
@@ -75,7 +75,7 @@
 
     //creds for tenant 
 
-    let email_tenant = 'andrew.test.mail.25+100004@gmail.com'
+    let email_tenant = 'andrew.test.mail.25+100001@gmail.com'
     let password_tenant = 'Qwerty123@'
     let book_message = 'test booking current +1 day'
     let book_addres_err = 'Address is a required field'
@@ -87,7 +87,7 @@
     let book_post = '12345'
     let firstName = "TestTenant"
     let lastName = "FromCypress"
-    let phoneTenant = 12845557781
+    let phoneTenant = 12845556681
 
     export const creds_tenant = {book_addres1,book_addres2, book_city, book_post, book_addres_err, 
         book_city_err, book_post_err, book_message, email_tenant, password_tenant, firstName, lastName, phoneTenant} 
