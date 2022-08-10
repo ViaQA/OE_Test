@@ -2,7 +2,6 @@ import {creds_host} from './Var';
 
 describe('Check Sign in form', () => {
     beforeEach(() => {
-      
       cy.visit(creds_host.host_url)
     })
       
@@ -60,13 +59,6 @@ describe('Check Sign in form', () => {
       cy.get('[placeholder="Password"]').type(creds_host.password)
       cy.get('[type="submit"]').click()
       }
-    ) 
-
-   
-
-
-
-   
-
+    )    
   
   })
