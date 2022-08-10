@@ -6,7 +6,7 @@ module.exports = defineConfig({
   viewportHeight: 1024,
   projectId: 'd6s6gb',
   e2e: {
-    defaultCommandTimeout: 100000,
+    defaultCommandTimeout: 10000,
     setupNodeEvents(on, config) {
       
 

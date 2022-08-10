@@ -70,7 +70,21 @@
     let url_admin = 'https://devadmin.officeexchange.com/'
     let email_admin = 'andrew.test.mail.25+100500@gmail.com'
     let password_admin = 'Vj7PUd7z87NDSqV'
-    export const creds_admin = {url_admin, email_admin, password_admin}
+    let icon_header = 'Icon header'
+    let image_header = 'Image header'
+    let image_desc = 'Image description'
+    let img_btn_text = 'image button text 123456'
+    let img_btn_text_front = 'image button text 12'
+    let img_link = '/test'
+
+    
+    let square_header = 'Square header'
+    let square_desc = 'Square description'
+    let square_btn_text = 'square button text 123456'
+    let square_btn_text_front = 'square button text 1'
+    let square_link = '/test'
+    export const creds_admin = {url_admin, email_admin, password_admin, icon_header, image_desc, image_header, img_btn_text,
+         img_btn_text_front, img_link, square_btn_text, square_btn_text_front, square_desc, square_header, square_link}
 
 
     //creds for tenant 

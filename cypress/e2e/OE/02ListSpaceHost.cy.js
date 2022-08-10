@@ -7,8 +7,9 @@ describe('Check Sign in form', () => {
 
     beforeEach(() => {
         cy.visit(creds_host.host_url)
-        cy.xpath('//span[text()="Sign in"]/parent::a').click()
-        cy.get('[placeholder="Email"]').type(creds_host.email_host)
+        //cy.xpath('//span[text()="Sign in"]/parent::a').click()
+        cy.contains('Sign in').click({ multiple: true })
+        cy.get('[data_atr="signInEmail"]').type(creds_host.email_host)
         cy.get('[placeholder="Password"]').type(creds_host.password)
         cy.get('[type="submit"]').click()
       })
@@ -16,7 +17,8 @@ describe('Check Sign in form', () => {
 
 
     it('Create new space to listing', () =>{
-        cy.xpath('//span[text()="List your space"]').click()
+        //cy.xpath('//span[text()="List your space"]').click()
+        cy.contains("List your space").click()
         cy.xpath('//div[text()="Space kind"]/parent::div').click()
         cy.contains(creds_space.kind_space).click()
 
