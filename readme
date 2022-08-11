@@ -11,7 +11,7 @@ WHERE `email` = 'andrew.test.mail.25+100001@gmail.com'
 Delete home page custom items after autotest
 
 DELETE FROM `homepages`
-WHERE `header` LIKE '%header%'
+WHERE `header` LIKE '%autotest%'
 
 
 

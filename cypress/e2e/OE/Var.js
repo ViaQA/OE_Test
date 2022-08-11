@@ -70,15 +70,15 @@
     let url_admin = 'https://devadmin.officeexchange.com/'
     let email_admin = 'andrew.test.mail.25+100500@gmail.com'
     let password_admin = 'Vj7PUd7z87NDSqV'
-    let icon_header = 'Icon header'
-    let image_header = 'Image header'
+    let icon_header = 'Icon header autotest'
+    let image_header = 'Image header autotest'
     let image_desc = 'Image description'
     let img_btn_text = 'image button text 123456'
     let img_btn_text_front = 'image button text 12'
     let img_link = '/test'
 
     
-    let square_header = 'Square header'
+    let square_header = 'Square header autotest'
     let square_desc = 'Square description'
     let square_btn_text = 'square button text 123456'
     let square_btn_text_front = 'square button text 1'
