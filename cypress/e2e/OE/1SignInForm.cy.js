@@ -32,8 +32,8 @@ describe('Check Sign in form', () => {
 
       cy.get('[data_atr="forgotEmail"]').type('aaaaadadwawdaw')
       cy.xpath('//label[text()="Next"]').click()
-      cy.get('[data_atr="forgotEmail"]').should('have.css', 'border', '2px solid rgb(255, 77, 151)')
-      cy.contains('Please enter a valid email address').should('have.css', 'color','rgb(255, 77, 151)')
+      cy.get('[data_atr="forgotEmail"]').should('have.css', 'border', '1.5px solid rgb(209, 41, 27)')
+      cy.contains('Please enter a valid email address').should('have.css', 'color','rgb(209, 41, 27)')
       
       cy.xpath('//a[text()="Back to Sign In"]').click()
       cy.xpath('//a[text()="Forgot password?"]').click()

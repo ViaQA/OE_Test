@@ -20,7 +20,6 @@ describe('Check Sign up form', () => {
         cy.xpath("//span[text()='I confirm and agree to the']/child::a[text()='privacy policy']").should('have.attr', 'href', '/privacy-policy')
         cy.xpath("//span[text()='I confirm and agree to the']/child::a[text()='terms']").should('have.attr', 'href', '/terms-and-conditions')
 
-
     })
 
 
