@@ -1,5 +1,5 @@
 
-import { err_css } from './css';
+import { err_css, signup_css } from './css';
 import {creds_tenant} from './Var';
 import {creds_host} from './Var';
 
@@ -7,6 +7,16 @@ import {creds_host} from './Var';
 
 
 describe('Check Sign up form', () => {
+
+    it( "Test for check terms text at Sign up for Host and Tenant", () => {
+        cy.visit(creds_host.host_url)
+        cy.contains('Sign up').click()
+        cy.contains('Guest').click()
+        cy.contains(signup_css.text_signup_guest).should('have.css', 'color', signup_css.text_color_darkblue)
+        cy.contains(signup_css.text_signup_guest_term).should('have.css', 'color', signup_css.text_color_darkblue)
+
+    })
+
 
     it( "Test sign up empty validation", ()=>{
 
