@@ -161,6 +161,21 @@ describe('Check Sign up form', () => {
         cy.get('[data_atr="createListing"]').click()
         cy.get('[data_atr="meetingRooms"]').click()
         cy.get('[type="submit"]').click()
+
+        //Uniqe space name validation at create
+        cy.get('[name="spaceName"]').type(listData.meetingRoomName + '1')
+        cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription)
+        cy.get('[name="spaceName"]').should('have.css', 'border', err_css.err_border)
+        cy.xpath('//input[@name="spaceName"]/following-sibling::div').should('have.text', 'Space name' + err_css.err_uniq).should('have.css', 'color', err_css.err_color)
+
+        cy.get('[name="spaceName"]').clear()
+        cy.get('[name="spaceDescription"]').clear()
+
+        cy.get('[name="spaceName"]').type(listData.meetingRoomName + '2')
+        cy.get('[name="spaceDescription"]').click()
+        cy.get('[name="spaceName"]').should('have.css', 'border', err_css.err_border)
+        cy.xpath('//input[@name="spaceName"]/following-sibling::div').should('have.text', 'Space name' + err_css.err_uniq).should('have.css', 'color', err_css.err_color)
+
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '3' )
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '3')
         cy.get('[type="submit"]').click()
