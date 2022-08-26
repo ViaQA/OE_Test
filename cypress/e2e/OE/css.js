@@ -21,15 +21,22 @@ export const err_css = {err_color, err_invemail, err_pass_confirm, err_pass_vali
 
 let text_color_darkblue = 'rgb(0, 12, 47)'
 let text_color_grey = 'rgb(102, 109, 130)'
+let dark_blue_day = 'rgb(26, 36, 68)'
+let white_color = 'rgb(255, 255, 255)'
 let border_grey = '1px solid rgb(102, 109, 130)'
+let border_grey2px = '2px solid rgb(102, 109, 130)'
 let border_darkblue = '1.5px solid rgb(0, 12, 47)'
+let border_violet2px = '2px solid rgb(65, 53, 172)'
+
 let text_signup_guest = 'Book short-term spaces'
 let text_signup_guest_term = 'Sign up for The Office Exchange and and start booking short-term spaces that fit your needs.'
 let text_signup_host = 'List Your Spaces'
 let text_signup_host_term = 'Sign up for The Office Exchange and list your commercial spaces for short term bookings.'
 
 export const signup_css = {text_color_darkblue, text_signup_guest, 
-     text_color_grey, border_darkblue, border_grey ,text_signup_guest_term, text_signup_host, text_signup_host_term}
+     text_color_grey, border_grey2px, dark_blue_day,
+     border_darkblue, border_grey, white_color,
+     border_violet2px, text_signup_guest_term, text_signup_host, text_signup_host_term}
 
 
 
