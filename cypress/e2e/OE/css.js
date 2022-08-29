@@ -10,11 +10,12 @@ let err_least = ' must be at least 2 characters'
 let err_required = ' is a required field'
 let err_match = 'Password confirmation does not match'
 let err_phone_least = 'Phone number must be at least 11 characters'
-let err_uniq = 'shold be unique'
+let err_uniq = ' should be unique'
+let err_end_start = 'End time cannot be before start time.'
 
 
 
-export const err_css = {err_color, err_uniq, err_invemail, err_pass_confirm, err_pass_validation, err_valid, err_least,
+export const err_css = {err_color, err_uniq, err_end_start, err_invemail, err_pass_confirm, err_pass_validation, err_valid, err_least,
      err_required, err_border, err_match, err_phone_least}
 
 

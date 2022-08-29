@@ -132,6 +132,15 @@ describe('Check Sign up form', () => {
         cy.get('[data-qa="end-time"]').type('0222')
         cy.get('[data-qa="end-time"]').should('have.value', listData.custom_end_time)
 
+        //verify err message
+        //cy.get('[data-qa="start-time"]').should('have.css','border', err_css.err_border)
+        //cy.get('[data-qa="end-time"]').should('have.css','border', err_css.err_border)
+        
+        cy.get('[data_atr="applyModal"]').click()
+        cy.contains(err_css.err_end_start)
+
+
+
 
 //NEED TO SHOW ERROR MESSAGE!!!!!!!!
         
@@ -176,6 +185,9 @@ describe('Check Sign up form', () => {
         cy.get('[name="spaceName"]').should('have.css', 'border', err_css.err_border)
         cy.xpath('//input[@name="spaceName"]/following-sibling::div').should('have.text', 'Space name' + err_css.err_uniq).should('have.css', 'color', err_css.err_color)
 
+        cy.get('[name="spaceName"]').clear()
+        cy.get('[name="spaceDescription"]').clear()
+
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '3' )
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '3')
         cy.get('[type="submit"]').click()
@@ -190,6 +202,7 @@ describe('Check Sign up form', () => {
         cy.get('[data_atr="applyModal"]').click()
         cy.get('[type="submit"]').click()
         cy.contains(listData.step4)
+        cy.get('[type="submit"]').should('be.disabled')
         cy.get('[data_atr="Hourly"]').click({force: true})
         cy.get('[name="pricing.hourly"]').type(listData.priceHourly)
         cy.get('[data_atr="Daily"]').click({force: true})
@@ -207,12 +220,60 @@ describe('Check Sign up form', () => {
         cy.contains(listData.meetingRoomName + '3')
 
     })
-    //it('Create meeting', () => {
+    it('Create meeting Address test', () => {
+        //Precondition
+        cy.get('[data_atr="listSpace"]').click()
+        cy.get('[data_atr="createListing"]').click()
+        cy.get('[data_atr="meetingRooms"]').click()
+        cy.get('[type="submit"]').click()
+        cy.get('[name="spaceName"]').type(listData.meetingRoomName + '4' )
+        cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '4')
+        cy.get('[type="submit"]').click()
+        cy.contains(listData.step3)
+        cy.get('[data_atr="Monday"]').click()
+        cy.get('[data_atr="time24Hour"]').click()
+        cy.get('[data_atr="applyModal"]').click()
+        cy.get('[data_atr="Thursday"]').click('')
+        cy.get('[data_atr="timeClosed"]').click()
+        cy.get('[data_atr="applyModal"]').click()
+        cy.get('[data_atr="Wednesday"]').click()
+        cy.get('[data-qa="start-time"]').type('1011')
+        cy.get('[data-qa="start-time"]').should('have.value', listData.custom_start_time)
+        cy.get('[data-qa="end-time"]').type('0222')
+        cy.get('[data-qa="end-time"]').should('have.value', listData.custom_end_time)
+        cy.get('[data_atr="closeAMPM"]').click()
+        cy.get('[data_atr="applyModal"]').click()
+        cy.get('[type="submit"]').click()
+        cy.contains(listData.step4)
+        cy.get('[data_atr="Hourly"]').click({force: true})
+        cy.get('[name="pricing.hourly"]').type(listData.priceHourly)
+        cy.get('[data_atr="Daily"]').click({force: true})
+        cy.get('[name="pricing.daily"]').type(listData.priceDaily)
+        cy.get('[data_atr="Monthly"]').click({force: true})
+        cy.get('[name="pricing.monthly"]').type(listData.priceMonthly)
+        cy.get('[name="capturePrice"]').type(listData.securityDep)
+        cy.get('[type="submit"]').click()
+        cy.contains(listData.step5)
+
+        //Test
+        cy.get('[name="streetAddress"]').type(listData.addres_lakesucces)
+        cy.contains(listData.addres_lakesucces).click()
+        cy.get('[name="apt"]').type(listData.apt)
+
+
+        
+
+
+
+
+
+
+
 
         
 
         
-   // })
+    })
     //it('Create meeting', () => {
 
         

@@ -24,8 +24,25 @@ let custom_time_avail = '10:00 AM - 2:00 PM'
 let custom_start_time = '10:00'
 let custom_end_time = '02:00'
 
+let address_queens = '144-2 135th Ave, Queens, NY 11436, USA'
+let addres_queens_num = '144-2'
+let addres_queens_street = '135th Ave'
+let addres_queens_city = 'Queens'
+let address_queens_zip = '11436'
+let addres_queens_state = 'NY'
+
+let addres_lakesucces = '12 Jeffrey Ln, Lake Success, NY 11020, USA'
+let addres_lakesucces_num = '12'
+let addres_lakesucces_street = 'Jeffrey Ln'
+let addres_lakesucces_city = 'Lake Success'
+
+let apt = '123'
+
 export const listData = {home_text, step1,step2,step3,step4,step5,
+    addres_lakesucces, addres_queens_city, addres_queens_num, addres_queens_state,
+    addres_queens_street, address_queens, address_queens_zip,
     step6,step7,step8,step9, priceDaily,priceHourly,priceMonthly,
     securityDep,securityDepInvalid, custom_time_avail, custom_end_time,
-    custom_start_time,
-     meetingRoomName, meetingRoomDescription}
+    custom_start_time, addres_lakesucces, addres_lakesucces_city, addres_lakesucces_num,
+    addres_lakesucces_street , apt,
+    meetingRoomName, meetingRoomDescription}
