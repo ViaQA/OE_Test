@@ -35,14 +35,17 @@ let addres_lakesucces = '12 Jeffrey Ln, Lake Success, NY 11020, USA'
 let addres_lakesucces_num = '12'
 let addres_lakesucces_street = 'Jeffrey Ln'
 let addres_lakesucces_city = 'Lake Success'
+let addres_lakesucces_zip = '11020'
 
 let apt = '123'
 
+let square_ft1 = '351'
+let capacity_1 = '50-100'
 export const listData = {home_text, step1,step2,step3,step4,step5,
     addres_lakesucces, addres_queens_city, addres_queens_num, addres_queens_state,
     addres_queens_street, address_queens, address_queens_zip,
     step6,step7,step8,step9, priceDaily,priceHourly,priceMonthly,
     securityDep,securityDepInvalid, custom_time_avail, custom_end_time,
     custom_start_time, addres_lakesucces, addres_lakesucces_city, addres_lakesucces_num,
-    addres_lakesucces_street , apt,
-    meetingRoomName, meetingRoomDescription}
+    addres_lakesucces_street , apt, addres_lakesucces_zip,
+    meetingRoomName, meetingRoomDescription, square_ft1, capacity_1}
