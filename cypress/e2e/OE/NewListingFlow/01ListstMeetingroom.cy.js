@@ -4,7 +4,7 @@ import { creds_host, creds_space } from "../Var"
 import { listData } from "./ListData"
 
 
-describe('Check Sign up form', () => {
+describe('Check list space flow', () => {
 
     beforeEach(() => {
         cy.visit(creds_host.host_url)
