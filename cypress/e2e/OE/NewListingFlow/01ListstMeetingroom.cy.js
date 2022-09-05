@@ -29,17 +29,21 @@ describe('Check list space flow', () => {
         cy.contains('Exit').click()
         cy.contains(listData.home_text)
     })
+
     it('Create meeting Space Name/Descriptions Validations', () => {
         cy.get('[data_atr="listSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
+        cy.get('[type="submit"]').should('be.disabled')
         cy.get('[data_atr="meetingRooms"]').click()
 
+        //OET-763 need to add check after fix
         //cy.contains('Save and Exit').click()
         
         cy.contains(listData.step1)
         cy.get('[type="submit"]').click()
         cy.contains(listData.step2)
-        //Grey
+        
+        //Grey 1px / should be 1.5px 
         cy.get('[name="spaceName"]').should('have.css', 'border', signup_css.border_grey)
         cy.get('[name="spaceDescription"]').should('have.css', 'border', signup_css.border_grey)
         //Trigger error
@@ -50,15 +54,15 @@ describe('Check list space flow', () => {
         cy.get('[name="spaceName"]').should('have.css', 'border', err_css.err_border)
         cy.get('[name="spaceDescription"]').should('have.css', 'border', err_css.err_border)
         cy.xpath('//input[@name="spaceName"]/following-sibling::div').should('have.text', 'Space name' + err_css.err_required).should('have.css', 'color', err_css.err_color)
-        //cy.xpath('//input[@name="spaceDescription"]/following-sibling::div').should('have.text', 'Space description' + err_css.err_required).should('have.css', 'color', err_css.err_color)
+        cy.xpath('//textarea[@name="spaceDescription"]/following-sibling::div').should('have.text', 'Space description' + err_css.err_required).should('have.css', 'color', err_css.err_color)
         //Enter valid data
-        cy.get('[name="spaceName"]').type(listData.meetingRoomName + '1' )
-        cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '1')
+        cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'MeetingRooms1' )
+        cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + 'MeetingRoomsDescr1')
         cy.get('[name="spaceName"]').should('have.css', 'border', signup_css.border_darkblue)
         cy.get('[name="spaceDescription"]').should('have.css', 'border', signup_css.border_darkblue)
         cy.get('[type="submit"]').click()
         cy.contains('Save and Exit').click()
-        cy.contains(listData.meetingRoomName + '1')
+        cy.contains(listData.meetingRoomName + 'MeetingRooms')
     })
     it('Create meeting Step 3 time for Availability ', () => {
         cy.get('[data_atr="listSpace"]').click()
@@ -116,6 +120,10 @@ describe('Check list space flow', () => {
         cy.get('[data-qa="start-time"]').type('12')
         cy.get('[data_atr="time24Hour"]').should('have.css','border', signup_css.border_grey2px)
         cy.get('[data-qa="end-time"]').type('12')
+
+        cy.get('[data-qa="start-time"]').should('have.css', 'border', signup_css.border_darkblue)
+        cy.get('[data-qa="end-time"]').should('have.css', 'border', signup_css.border_darkblue)
+
         cy.get('[data_atr="applyModal"]').click()
         cy.get('[data_atr="Monday"]').children().should('have.value', '24 hours')
 
@@ -172,7 +180,7 @@ describe('Check list space flow', () => {
         cy.get('[type="submit"]').click()
 
         //Uniqe space name validation at create
-        cy.get('[name="spaceName"]').type(listData.meetingRoomName + '1')
+        cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'MeetingRooms1')
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription)
         cy.get('[name="spaceName"]').should('have.css', 'border', err_css.err_border)
         cy.xpath('//input[@name="spaceName"]/following-sibling::div').should('have.text', 'Space name' + err_css.err_uniq).should('have.css', 'color', err_css.err_color)
@@ -205,14 +213,20 @@ describe('Check list space flow', () => {
         cy.get('[type="submit"]').should('be.disabled')
         cy.get('[data_atr="Hourly"]').click({force: true})
         cy.get('[name="pricing.hourly"]').type(listData.priceHourly)
+        cy.get('[name="pricing.hourly"]').should('have.css', 'border', signup_css.border_darkblue)
         cy.get('[data_atr="Daily"]').click({force: true})
         cy.get('[name="pricing.daily"]').type(listData.priceDaily)
+        cy.get('[name="pricing.daily"]').should('have.css', 'border', signup_css.border_darkblue)
         cy.get('[data_atr="Monthly"]').click({force: true})
         cy.get('[name="pricing.monthly"]').type(listData.priceMonthly)
+        cy.get('[name="pricing.monthly"]').should('have.css', 'border', signup_css.border_darkblue)
 
         cy.get('[name="capturePrice"]').type(listData.securityDepInvalid)
+        //Should be verify error border and error message about capture price
+        //cy.get('[name="capturePrice"]').
+        cy.xpath('//input[@name="capturePrice"]/following-sibling::p').should('have.css', 'color', err_css.err_color)
+        
         cy.get('[name="capturePrice"]').clear()
-
         cy.get('[name="capturePrice"]').type(listData.securityDep)
 
         cy.contains('Save and Exit').click()
