@@ -20,7 +20,7 @@ let priceMonthly = '3'
 let securityDep = '4'
 let securityDepInvalid = '5'
 
-let custom_time_avail = '10:00 AM - 2:00 PM'
+let custom_time_avail = '10:00 AM - 02:00 PM'
 let custom_start_time = '10:00'
 let custom_end_time = '02:00'
 
