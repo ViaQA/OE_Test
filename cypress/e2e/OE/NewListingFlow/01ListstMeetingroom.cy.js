@@ -36,16 +36,17 @@ describe('Check list space flow', () => {
         cy.get('[type="submit"]').should('be.disabled')
         cy.get('[data_atr="meetingRooms"]').click()
 
-        //OET-763 need to add check after fix
-        //cy.contains('Save and Exit').click()
+        
         
         cy.contains(listData.step1)
         cy.get('[type="submit"]').click()
         cy.contains(listData.step2)
+        //OET-763 need to add check after fix
+        cy.contains('Save and Exit').click()
         
         //Grey 1px / should be 1.5px 
-        cy.get('[name="spaceName"]').should('have.css', 'border', signup_css.border_grey)
-        cy.get('[name="spaceDescription"]').should('have.css', 'border', signup_css.border_grey)
+        cy.get('[name="spaceName"]').should('have.css', 'border', signup_css.border_grey_half)
+        cy.get('[name="spaceDescription"]').should('have.css', 'border', signup_css.border_grey_half)
         //Trigger error
         cy.get('[name="spaceName"]').click()
         cy.get('[name="spaceDescription"]').click()
@@ -62,6 +63,7 @@ describe('Check list space flow', () => {
         cy.get('[name="spaceDescription"]').should('have.css', 'border', signup_css.border_darkblue)
         cy.get('[type="submit"]').click()
         cy.contains('Save and Exit').click()
+        cy.get('[data_atr="draftSpace"]').click()
         cy.contains(listData.meetingRoomName + 'MeetingRooms')
     })
     it('Create meeting Step 3 time for Availability ', () => {
@@ -170,6 +172,7 @@ describe('Check list space flow', () => {
 
         cy.get('[type="submit"]').click()
         cy.contains('Save and Exit').click()
+        cy.get('[data_atr="draftSpace"]').click()
         cy.contains(listData.meetingRoomName + '2')
 
     })
@@ -220,6 +223,26 @@ describe('Check list space flow', () => {
         cy.get('[data_atr="Monthly"]').click({force: true})
         cy.get('[name="pricing.monthly"]').type(listData.priceMonthly)
         cy.get('[name="pricing.monthly"]').should('have.css', 'border', signup_css.border_darkblue)
+        cy.get('[name="capturePrice"]').type(listData.securityDep)
+
+        //Check clearing input after disabling 
+        cy.get('[data_atr="Hourly"]').click({force: true})
+        cy.get('[data_atr="Hourly"]').click({force: true})
+        cy.get('[name="pricing.hourly"]').should('have.css', 'border',signup_css.border_grey_half)
+        cy.get('[name="pricing.hourly"]').type(listData.priceHourly)
+        cy.get('[name="pricing.hourly"]').should('have.css', 'border', signup_css.border_darkblue)
+
+        cy.get('[data_atr="Daily"]').click({force: true})
+        cy.get('[data_atr="Daily"]').click({force: true})
+        cy.get('[name="pricing.daily"]').should('have.css', 'border',signup_css.border_grey_half)
+        cy.get('[name="pricing.daily"]').type(listData.priceHourly)
+        cy.get('[name="pricing.daily"]').should('have.css', 'border', signup_css.border_darkblue)
+
+        cy.get('[data_atr="Monthly"]').click({force: true})
+        cy.get('[data_atr="Monthly"]').click({force: true})
+        cy.get('[name="pricing.monthly"]').should('have.css', 'border',signup_css.border_grey_half)
+        cy.get('[name="pricing.monthly"]').type(listData.priceMonthly)
+        cy.get('[name="pricing.monthly"]').should('have.css', 'border', signup_css.border_darkblue)
 
         cy.get('[name="capturePrice"]').type(listData.securityDepInvalid)
         //Should be verify error border and error message about capture price
@@ -230,6 +253,7 @@ describe('Check list space flow', () => {
         cy.get('[name="capturePrice"]').type(listData.securityDep)
 
         cy.contains('Save and Exit').click()
+        cy.get('[data_atr="draftSpace"]').click()
 
         cy.contains(listData.meetingRoomName + '3')
 
@@ -282,14 +306,14 @@ describe('Check list space flow', () => {
         cy.get('[name="apt"]').should('have.css', 'border', signup_css.border_grey_half)
         cy.get('[name="apt"]').type(listData.apt)
         cy.get('[name="apt"]').should('have.value', listData.apt)
-                             .should('have.css', 'border', signup_css.border_darkblue)
+        cy.get('[name="apt"]').should('have.css', 'border', signup_css.border_darkblue)
 
         cy.get('[name="streetAddress"]').should('have.value', listData.addres_queens_num + ' ' + listData.addres_queens_street)
-                                        .should('have.css', 'border', signup_css.border_darkblue)
+        cy.get('[name="streetAddress"]').should('have.css', 'border', signup_css.border_darkblue)
         cy.get('[name="city"]').should('have.value', listData.addres_queens_city)
-                                 .should('have.css', 'border', signup_css.border_darkblue)
+        cy.get('[name="city"]').should('have.css', 'border', signup_css.border_darkblue)
         cy.get('[name="zipCode"]').should('have.value', listData.address_queens_zip)
-                                  .should('have.css', 'border', signup_css.border_darkblue)
+        cy.get('[name="zipCode"]').should('have.css', 'border', signup_css.border_darkblue)
         
         //Test Lake succes
         cy.get('[name="streetAddress"]').clear()
@@ -297,14 +321,14 @@ describe('Check list space flow', () => {
         cy.contains(listData.addres_lakesucces).click()
         cy.get('[name="apt"]').type(listData.apt)
         cy.get('[name="apt"]').should('have.value', listData.apt)
-                             .should('have.css', 'border', signup_css.border_darkblue)
+        cy.get('[name="apt"]').should('have.css', 'border', signup_css.border_darkblue)
 
         cy.get('[name="streetAddress"]').should('have.value', listData.addres_lakesucces_num + ' ' + listData.addres_lakesucces_street)
-                                        .should('have.css', 'border', signup_css.border_darkblue)
+        cy.get('[name="streetAddress"]').should('have.css', 'border', signup_css.border_darkblue)
         cy.get('[name="city"]').should('have.value', listData.addres_lakesucces_city)
-                                 .should('have.css', 'border', signup_css.border_darkblue)
+        cy.get('[name="city"]').should('have.css', 'border', signup_css.border_darkblue)
         cy.get('[name="zipCode"]').should('have.value', listData.addres_lakesucces_zip)
-                                  .should('have.css', 'border', signup_css.border_darkblue)
+        cy.get('[name="zipCode"]').should('have.css', 'border', signup_css.border_darkblue)
 
 
         //Floors test 
@@ -316,7 +340,7 @@ describe('Check list space flow', () => {
         cy.get('[type="submit"]').click()
 
         cy.contains('Save and Exit').click()
-
+        cy.get('[data_atr="draftSpace"]').click()
         cy.contains(listData.meetingRoomName + '4')
         
     })
@@ -391,7 +415,7 @@ describe('Check list space flow', () => {
         cy.get('[type="submit"]').click()
 
         cy.contains('Save and Exit').click()
-
+        cy.get('[data_atr="draftSpace"]').click()
         cy.contains(listData.meetingRoomName + '5')
     })
 
@@ -468,13 +492,13 @@ describe('Check list space flow', () => {
             "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
             "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
 
-        cy.wait(10000)
+        cy.wait(13000)
         cy.xpath('//button[@data-id="2"]').click({ multiple: true })
         cy.xpath('//button[text()="Delete"]').click()
 
         cy.get('[type="submit"]').click()
         cy.contains('Save and Exit').click()
-
+        cy.get('[data_atr="draftSpace"]').click()
         cy.contains(listData.meetingRoomName + '6')
 
         
