@@ -1,7 +1,13 @@
 
+let data_meeting = '[data_atr="meetingRooms"]'
+let data_offce= '[data_atr="officeSpace"]'
+let data_event = '[data_atr="eventSpace"]'
+let data_retail = '[data_atr="retailSpace"]'
+let data_other = '[data_atr="otherSpace"]'
 
 
 let home_text = "Book short term spaces that work for you when you need it."
+let pricing_text = "Set your pricing for hourly / daily / and monthly bookings. Only monthly bookings can have a security deposit."
 let step1 = '1/9'
 let step2 = '2/9'
 let step3 = '3/9'
@@ -47,5 +53,6 @@ export const listData = {home_text, step1,step2,step3,step4,step5,
     step6,step7,step8,step9, priceDaily,priceHourly,priceMonthly,
     securityDep,securityDepInvalid, custom_time_avail, custom_end_time,
     custom_start_time, addres_lakesucces, addres_lakesucces_city, addres_lakesucces_num,
-    addres_lakesucces_street , apt, addres_lakesucces_zip,
+    addres_lakesucces_street ,pricing_text , apt, addres_lakesucces_zip,
+    data_event, data_meeting, data_offce, data_other, data_retail,
     meetingRoomName, meetingRoomDescription, square_ft1, capacity_1}

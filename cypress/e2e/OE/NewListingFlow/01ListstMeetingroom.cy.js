@@ -3,6 +3,7 @@ import { err_css, signup_css } from "../css"
 import { creds_host, creds_space } from "../Var"
 import { listData } from "./ListData"
 
+let kindOfSpace = listData.data_other
 
 describe('Check list space flow', () => {
 
@@ -17,7 +18,7 @@ describe('Check list space flow', () => {
 
 
 
-    it('Create Meating rooms Exit at Start page', () => {
+    it('Create Meeting rooms Exit at Start page', () => {
         cy.get('[data_atr="listSpace"]').click()
         cy.contains('Exit').click()
         cy.contains(listData.home_text)
@@ -34,7 +35,7 @@ describe('Check list space flow', () => {
         cy.get('[data_atr="listSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
         cy.get('[type="submit"]').should('be.disabled')
-        cy.get('[data_atr="meetingRooms"]').click()
+        cy.get(kindOfSpace).click()
 
         
         
@@ -44,7 +45,7 @@ describe('Check list space flow', () => {
         //OET-763 need to add check after fix
         cy.contains('Save and Exit').click()
         
-        //Grey 1px / should be 1.5px 
+        //Grey should be 1.5px 
         cy.get('[name="spaceName"]').should('have.css', 'border', signup_css.border_grey_half)
         cy.get('[name="spaceDescription"]').should('have.css', 'border', signup_css.border_grey_half)
         //Trigger error
@@ -69,7 +70,7 @@ describe('Check list space flow', () => {
     it('Create meeting Step 3 time for Availability ', () => {
         cy.get('[data_atr="listSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
-        cy.get('[data_atr="meetingRooms"]').click()
+        cy.get(kindOfSpace).click()
         cy.get('[type="submit"]').click()
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '2' )
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '2')
@@ -179,7 +180,7 @@ describe('Check list space flow', () => {
     it('Create meeting price check step', () => {
         cy.get('[data_atr="listSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
-        cy.get('[data_atr="meetingRooms"]').click()
+        cy.get(kindOfSpace).click()
         cy.get('[type="submit"]').click()
 
         //Uniqe space name validation at create
@@ -213,6 +214,7 @@ describe('Check list space flow', () => {
         cy.get('[data_atr="applyModal"]').click()
         cy.get('[type="submit"]').click()
         cy.contains(listData.step4)
+        cy.contains(listData.pricing_text)
         cy.get('[type="submit"]').should('be.disabled')
         cy.get('[data_atr="Hourly"]').click({force: true})
         cy.get('[name="pricing.hourly"]').type(listData.priceHourly)
@@ -262,7 +264,7 @@ describe('Check list space flow', () => {
         //Precondition
         cy.get('[data_atr="listSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
-        cy.get('[data_atr="meetingRooms"]').click()
+        cy.get(kindOfSpace).click()
         cy.get('[type="submit"]').click()
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '4' )
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '4')
@@ -347,7 +349,7 @@ describe('Check list space flow', () => {
     it('Create meeting capacity step test', () => {
         cy.get('[data_atr="listSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
-        cy.get('[data_atr="meetingRooms"]').click()
+        cy.get(kindOfSpace).click()
         cy.get('[type="submit"]').click()
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '5' )
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '5')
@@ -422,7 +424,7 @@ describe('Check list space flow', () => {
     it('Create meeting uppload photo step test', () => {
         cy.get('[data_atr="listSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
-        cy.get('[data_atr="meetingRooms"]').click()
+        cy.get(kindOfSpace).click()
         cy.get('[type="submit"]').click()
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '6' )
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '6')
@@ -500,7 +502,5 @@ describe('Check list space flow', () => {
         cy.contains('Save and Exit').click()
         cy.get('[data_atr="draftSpace"]').click()
         cy.contains(listData.meetingRoomName + '6')
-
-        
     })
 })
