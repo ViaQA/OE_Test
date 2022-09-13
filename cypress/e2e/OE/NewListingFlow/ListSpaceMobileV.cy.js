@@ -9,10 +9,12 @@ describe('Check list space flow', () => {
 
     beforeEach(() => {
         cy.visit(creds_host.host_url)
+        cy.log(Cypress.config("viewportWidth"))
         //cy.xpath('//span[text()="Sign in"]/parent::a').click()
-        if (visualViewport.width < 760 ) {
+        if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
+        
         cy.get('[data_atr = "sign_in"]').click({ multiple: true, force: true })
         cy.get('[data_atr="signInEmail"]').type(creds_host.email_host)
         cy.get('[placeholder="Password"]').type(creds_host.password)
@@ -22,13 +24,13 @@ describe('Check list space flow', () => {
 
 
     it('Create Meeting rooms Exit at Start page', () => {
-        if (visualViewport.width < 760) {
+        if (Cypress.config("viewportWidth") < 760) {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         //data_atr="exit_mobile"
         
-        if (visualViewport.width < 760 ) {
+        if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="exit_mobile"]').click()
         }else{
           cy.contains('Exit').click()
@@ -38,12 +40,12 @@ describe('Check list space flow', () => {
     })
 
     it('Create meeting Exit at first page' , () => {
-        if (visualViewport.width < 760 ) {
+        if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createListing"]').click()
-        if (visualViewport.width < 760 ) {
+        if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="exit_mobile"]').click()
         }else{
           cy.contains('Exit').click()
@@ -52,7 +54,7 @@ describe('Check list space flow', () => {
     })
 
     it('Create meeting Space Name/Descriptions Validations', () => {
-        if (visualViewport.width < 760 ) {
+        if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
@@ -66,7 +68,7 @@ describe('Check list space flow', () => {
         cy.get('[type="submit"]').click()
         cy.contains(listData.step2)
         //OET-763 need to add check after fix
-        if (visualViewport.width > 760 ) {
+        if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
         }
         
@@ -88,7 +90,7 @@ describe('Check list space flow', () => {
         cy.get('[name="spaceName"]').should('have.css', 'border', signup_css.border_darkblue)
         cy.get('[name="spaceDescription"]').should('have.css', 'border', signup_css.border_darkblue)
         cy.get('[type="submit"]').click()
-        if (visualViewport.width > 760 ) {
+        if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + 'MeetingRooms')
@@ -97,7 +99,7 @@ describe('Check list space flow', () => {
         }
     })
     it('Create meeting Step 3 time for Availability ', () => {
-        if (visualViewport.width < 760 ) {
+        if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
@@ -205,7 +207,7 @@ describe('Check list space flow', () => {
 
         cy.get('[type="submit"]').click()
        
-        if (visualViewport.width > 760 ) {
+        if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '2')
@@ -215,7 +217,7 @@ describe('Check list space flow', () => {
 
     })
     it('Create meeting price check step', () => {
-        if (visualViewport.width < 760 ) {
+        if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
@@ -225,7 +227,7 @@ describe('Check list space flow', () => {
 
         //Uniqe space name validation at create
         
-        if (visualViewport.width > 760 ) {
+        if (Cypress.config("viewportWidth") > 760 ) {
           cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'MeetingRooms1')
           cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription)
           cy.get('[name="spaceName"]').should('have.css', 'border', err_css.err_border)
@@ -299,7 +301,7 @@ describe('Check list space flow', () => {
         cy.get('[name="capturePrice"]').type(listData.securityDep)
 
        
-        if (visualViewport.width > 760 ) {
+        if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '3')
@@ -311,7 +313,7 @@ describe('Check list space flow', () => {
     })
     it('Create meeting Address step test', () => {
         //Precondition
-        if (visualViewport.width < 760 ) {
+        if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
@@ -394,7 +396,7 @@ describe('Check list space flow', () => {
         cy.get('[type="submit"]').click()
 
 
-        if (visualViewport.width > 760 ) {
+        if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '4')
@@ -405,7 +407,7 @@ describe('Check list space flow', () => {
     })
     it('Create meeting capacity step test', () => {
 
-        if (visualViewport.width < 760 ) {
+        if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
@@ -479,7 +481,7 @@ describe('Check list space flow', () => {
 
         
 
-        if (visualViewport.width > 760 ) {
+        if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '5')
@@ -489,7 +491,7 @@ describe('Check list space flow', () => {
     })
 
     it('Create meeting uppload photo step test', () => {
-        if (visualViewport.width < 760 ) {
+        if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
@@ -570,7 +572,7 @@ describe('Check list space flow', () => {
 
         cy.get('[type="submit"]').click()
 
-        if (visualViewport.width > 760 ) {
+        if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '6')
