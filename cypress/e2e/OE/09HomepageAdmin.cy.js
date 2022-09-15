@@ -18,6 +18,20 @@ describe('Check Home custom fields', () => {
         cy.get('[class="btn btn-primary"]').click()
             }
     )
+    it( "Test create icon item at home page SVG", ()=>{
+
+        cy.visit(creds_admin.url_admin)
+        cy.get('[id="email"]').type(creds_admin.email_admin)
+        cy.get('[id="password"]').type(creds_admin.password_admin)
+        cy.get('[type="submit"]').click()
+        cy.get('[class="fas fa-home"]').click()
+        cy.get('[class="btn btn-outline-primary"]').click()
+        cy.get('[onchange="changetype(this)"]').select('Icon')
+        cy.get('[name="header"]').type(creds_admin.icon_header)
+        cy.get('[name="img"]').selectFile(["cypress/fixtures/biotech.svg"])
+        cy.get('[class="btn btn-primary"]').click()
+            }
+    )
    
 
 
