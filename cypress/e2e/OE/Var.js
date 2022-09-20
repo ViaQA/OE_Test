@@ -1,6 +1,10 @@
+
     
 // Creds to Host onboarding test
     let email = 'andrew.test.mail.25+100000@gmail.com'
+
+    let roleHost = '1'
+    let roleGuest = '0'
     
     let email_host = 'andrew.test.mail.25+100000@gmail.com'
     let email_bad = 'andrew.test.mail.25+12@gmail.com'
@@ -23,6 +27,7 @@
     let API_Domain = 'https://api.combinify-dev.xyz';
 
     export const creds_host = {email_host,email_restore,email_notfount, password_new, email,email_bad, password,password_bad, 
+        roleGuest, roleHost,
         last_name, first_name, team_name, position, TM_invite, TM_invite_2, host_url, TM_invite_myteam, token, API_Domain, cron_script_payment} 
 
 
