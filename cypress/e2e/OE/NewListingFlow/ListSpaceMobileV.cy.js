@@ -92,6 +92,7 @@ describe('Check list space flow', () => {
         cy.get('[type="submit"]').click()
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + 'MeetingRooms')
         }else{
@@ -209,6 +210,7 @@ describe('Check list space flow', () => {
        
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '2')
         }else{
@@ -303,6 +305,7 @@ describe('Check list space flow', () => {
        
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '3')
         }else{
@@ -398,6 +401,7 @@ describe('Check list space flow', () => {
 
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '4')
         }else{
@@ -483,6 +487,7 @@ describe('Check list space flow', () => {
 
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '5')
         }else{
@@ -574,6 +579,7 @@ describe('Check list space flow', () => {
 
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '6')
         }else{

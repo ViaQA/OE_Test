@@ -47,6 +47,10 @@ let apt = '123'
 
 let square_ft1 = '351'
 let capacity_1 = '50-100'
+
+let custom_amen1 = "first custom amenities"
+let custom_amen2 = "second custom amenities"
+let custom_amen3 = "custom amenities editable"
 export const listData = {home_text, step1,step2,step3,step4,step5,
     addres_lakesucces, addres_queens_city, addres_queens_num, addres_queens_state,
     addres_queens_street, address_queens, address_queens_zip,
@@ -55,4 +59,5 @@ export const listData = {home_text, step1,step2,step3,step4,step5,
     custom_start_time, addres_lakesucces, addres_lakesucces_city, addres_lakesucces_num,
     addres_lakesucces_street ,pricing_text , apt, addres_lakesucces_zip,
     data_event, data_meeting, data_offce, data_other, data_retail,
+    custom_amen1, custom_amen2, custom_amen3,
     meetingRoomName, meetingRoomDescription, square_ft1, capacity_1}
