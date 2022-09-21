@@ -56,6 +56,7 @@ describe('Check Sign up form', () => {
       cy.get('[type="submit"]').click()
       cy.contains(listData.step5)
       cy.get('[name="streetAddress"]').type(listData.address_queens)
+      cy.wait(1000)
       cy.contains(listData.address_queens).click()
       cy.get('[name="apt"]').type(listData.apt)
       cy.xpath('//div[text()="Enter floor(s) number"]').click()
