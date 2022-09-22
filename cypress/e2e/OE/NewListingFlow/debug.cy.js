@@ -27,8 +27,8 @@ describe('Check Sign up form', () => {
       cy.get('[data_atr="createListing"]').click()
       cy.get(kindOfSpace).click()
       cy.get('[type="submit"]').click()
-      cy.get('[name="spaceName"]').type(listData.meetingRoomName + '6' )
-      cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '6')
+      cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'Preview' )
+      cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + 'Preview')
       cy.get('[type="submit"]').click()
       cy.contains(listData.step3)
       cy.get('[data_atr="Monday"]').click()
@@ -90,61 +90,53 @@ describe('Check Sign up form', () => {
       cy.xpath('//button[text()="Delete"]').click()
       cy.get('[type="submit"]').click()
 
-      //Initial step 
-      cy.get('[type="submit"]').should('be.disabled')
+      //Check custom amenities
+      cy.contains(listData.custom_amen1)
+      cy.contains(listData.custom_amen_edited)
+      //Next step
       cy.get('[data_atr="access"]').click()
       cy.get('[type="submit"]').click()
+      cy.contains(listData.step9)
+
+      cy.get('[data_atr="preview_save"]').click()
+
       cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+
       
-      //Add custom amenities don`t saved
-      cy.get('[data_atr="add_amenity"]').click()
-      cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)
-      cy.get('[data_atr="amenity_input"]').type(listData.custom_amen1)
-      cy.get('[data_atr="amenity_input"]').should('have.css', 'border', signup_css.border_darkblue)
-      cy.get('[data_atr="amenity_input"]').should('have.value', listData.custom_amen1)
-      cy.get('[data_atr="close_amen"]').click()
+     
 
-      //Add custom amenities don`t saved close popup
-      cy.get('[data_atr="add_amenity"]').click()
-      cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)
-      cy.get('[data_atr="amenity_input"]').type(listData.custom_amen1)
-      cy.get('[data_atr="amenity_input"]').should('have.css', 'border', signup_css.border_darkblue)
-      cy.get('[data_atr="amenity_input"]').should('have.value', listData.custom_amen1)
-      cy.get('[data_atr="close"]').click()
-      
-      //Add first custom amenities
-      cy.get('[data_atr="add_amenity"]').click()
-      cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)
-      cy.get('[data_atr="amenity_input"]').type(listData.custom_amen1)
-      cy.get('[data_atr="amenity_input"]').should('have.css', 'border', signup_css.border_darkblue)
-      cy.get('[data_atr="amenity_input"]').should('have.value', listData.custom_amen1)
-      cy.get('[data_atr="save_amen"]').click()
 
-      //Add second custom amenities
-      cy.get('[data_atr="add_amenity"]').click()
-      cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)
-      cy.get('[data_atr="amenity_input"]').type(listData.custom_amen2)
-      cy.get('[data_atr="amenity_input"]').should('have.css', 'border', signup_css.border_darkblue)
-      cy.get('[data_atr="amenity_input"]').should('have.value', listData.custom_amen2)
-      cy.get('[data_atr="save_amen"]').click()
 
-      //Add custom amenities for edit it
-      cy.get('[data_atr="add_amenity"]').click()
-      cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)
-      cy.get('[data_atr="amenity_input"]').type(listData.custom_amen3)
-      cy.get('[data_atr="amenity_input"]').should('have.css', 'border', signup_css.border_darkblue)
-      cy.get('[data_atr="amenity_input"]').should('have.value', listData.custom_amen3)
-      cy.get('[data_atr="save_amen"]').click()
+
+
+
+
 
       
 
 
 
 
+      
 
+      
+      
+      
 
+      
 
+     
 
+      
+
+      //Save and exit
       if (Cypress.config("viewportWidth") > 760 ) {
         cy.contains('Save and Exit').click()
         cy.wait(2000)
