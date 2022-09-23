@@ -19,13 +19,12 @@ describe('Check Sign up form', () => {
         cy.get('[type="submit"]').click()
       })
 
-    it('Duplicate', () => {
+    it('Create draft space then back navigation check', () => {
       if (Cypress.config("viewportWidth") < 760 ) {
         cy.get('[data_atr="burger_menu"]').click({force: true })
       }
       cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
-      cy.get('[data_atr="duplicateListing"]').click()
-
+      cy.get('[data_atr="createListing"]').click()
       cy.get(kindOfSpace).click()
       cy.get('[type="submit"]').click()
       cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'Preview' )
@@ -164,16 +163,19 @@ describe('Check Sign up form', () => {
       cy.get('[data_atr="access"]').should('have.css', 'border', signup_css.border_violet1px)
       cy.get('[type="submit"]').click()
       cy.get('[type="submit"]').click()
+      cy.contains([listData.meetingRoomName + 'Preview'])
+      cy.contains('other')
 
-      //Save and exit
-      //if (Cypress.config("viewportWidth") > 760 ) {
-        //cy.contains('Save and Exit').click()
-        // cy.wait(2000)
-      //   cy.get('[data_atr="draftSpace"]').click()
-      //   cy.contains(listData.meetingRoomName + '6')
-      // }else{
-      //   cy.get('[data_atr="exit_mobile"]').click()
-      // }
+      // Check navigation to Duplicate flow 
+      cy.get('[data_atr="createSpace"]').click()
+      cy.get('[data_atr="close_modal"]').click()
+      cy.get('[data_atr="createSpace"]').click()
+      cy.get('[data_atr="close_modal_btn"]').click()
+      cy.get('[data_atr="createSpace"]').click()
+      cy.get('[data_atr="duplicateListing"]').click()
+      cy.get('[data_atr="continue_modal_btn"]').click()
+      cy.get('[data_atr="search_duplicate"]')
+      cy.get('[data_atr="search_duplicate_btn"]')
   })
 })
 

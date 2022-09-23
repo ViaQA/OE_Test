@@ -106,7 +106,9 @@ describe('Check list space flow', () => {
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createListing"]').click()
         cy.get(kindOfSpace).click({force: true})
+        cy.wait(1000)
         cy.get('[type="submit"]').click()
+        
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '2' )
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '2')
         cy.get('[type="submit"]').click()
@@ -706,20 +708,20 @@ describe('Check list space flow', () => {
       cy.get('[data_atr="save_amen"]').click()
 
       //Delete custom amenities NOT apply
-      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.get('[data_atr="del__0"]').click()
       cy.get('[data_atr="close_modal"]').click()
-      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.contains(listData.custom_amen1)
 
-      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.get('[data_atr="del__0"]').click()
       cy.get('[data_atr="close_modal_edit"]').click()
-      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.contains(listData.custom_amen1)
 
       //Edit modal NOT apply
-      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.get('[data_atr="edit_0"]').click()
       cy.get('[data_atr="edit_amen_input"]').clear()
       cy.get('[data_atr="edit_amen_input"]').type('Edited NOT apply')
