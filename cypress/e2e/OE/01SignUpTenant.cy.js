@@ -79,6 +79,8 @@ describe('Check Sign up form', () => {
 
 
     it( "Test sign up must be at least 2 chracters", ()=>{
+        //Password validation
+        //password match validation
 
         cy.get('[data_atr="signUpFirstName"]').type("q")
         cy.get('[data_atr="signUpLastName"]').type("q")
@@ -133,46 +135,71 @@ describe('Check Sign up form', () => {
         
     })
 
-
-    it("Test type valid data and create account", ()=>{
-        cy.visit(creds_host.host_url)
-        cy.contains('Sign up').click()
+    it("Test phone number and code verification", ()=>{
         cy.get('[data_atr="signUpFirstName"]').type(creds_tenant.firstName)
         cy.get('[data_atr="signUpLastName"]').type(creds_tenant.lastName)
         cy.get('[data_atr="signUpEmail"]').type(creds_tenant.email_tenant)
         cy.get('[data_atr="signUpPassword"]').type(creds_tenant.password_tenant)
         cy.get('[data_atr="signUpPasswordConfirm"]').type(creds_tenant.password_tenant)
-
+        cy.get('[type="submit"]').should('be.disabled')
         cy.get('[name="policy"]').click({force: true})
-        cy.contains('Next').click()
+        cy.get('[type="submit"]').click()
+
         cy.get('[data_atr="singUpPhoneNumber"]').click()
-        cy.contains('Next').click()
+        cy.get('[type="submit"]').click({force: true})
         cy.xpath('//input[@data_atr="singUpPhoneNumber"]/following-sibling::div').should('have.text', 'Phone number'+ err_css.err_required).should('have.css', 'color', err_css.err_color)
         cy.get('[data_atr="singUpPhoneNumber"]').should('have.css', 'border', err_css.err_border)
         cy.get('[data_atr="singUpPhoneNumber"]').type(2)
         cy.xpath('//input[@data_atr="singUpPhoneNumber"]/following-sibling::div').should('have.text', err_css.err_phone_least).should('have.css', 'color', err_css.err_color)
         cy.get('[data_atr="singUpPhoneNumber"]').should('have.css', 'border', err_css.err_border)
+        cy.get('[data_atr="singUpPhoneNumber"]').clear()
         cy.get('[data_atr="singUpPhoneNumber"]').type(creds_tenant.phoneTenant)
-        cy.contains('Next').click()
-
-        // After update need refactoring
-        cy.wait(1000)
-        cy.get('[data_atr="codeInput"]').type('111111')
         cy.get('[type="submit"]').click()
-        cy.contains('My account')
+
+        cy.get('[data_atr="codeInput"]').type('11111')
+        cy.get('[type="submit"]').should('be.disabled')
+        cy.get('[data_atr="codeInput"]').clear()
+
+        cy.get('[data_atr="back_btn"]').click()
+        cy.get('[data_atr="back_btn"]').click()
+        cy.get('[type="submit"]').click()
+        cy.get('[type="submit"]').click()
+        
+        cy.contains('Resend code')
+
     })
 
 
+    it("Test type valid data and create account", ()=>{
+        cy.get('[data_atr="signUpFirstName"]').type(creds_tenant.firstName)
+        cy.get('[data_atr="signUpLastName"]').type(creds_tenant.lastName)
+        cy.get('[data_atr="signUpEmail"]').type(creds_tenant.email_tenant)
+        cy.get('[data_atr="signUpPassword"]').type(creds_tenant.password_tenant)
+        cy.get('[data_atr="signUpPasswordConfirm"]').type(creds_tenant.password_tenant)
+        cy.get('[name="policy"]').click({force: true})
+        cy.get('[type="submit"]').click()
 
+        cy.get('[data_atr="singUpPhoneNumber"]').click()
+        cy.get('[type="submit"]').click({force: true})
+        cy.xpath('//input[@data_atr="singUpPhoneNumber"]/following-sibling::div').should('have.text', 'Phone number'+ err_css.err_required).should('have.css', 'color', err_css.err_color)
+        cy.get('[data_atr="singUpPhoneNumber"]').should('have.css', 'border', err_css.err_border)
+        cy.get('[data_atr="singUpPhoneNumber"]').type(2)
+        cy.xpath('//input[@data_atr="singUpPhoneNumber"]/following-sibling::div').should('have.text', err_css.err_phone_least).should('have.css', 'color', err_css.err_color)
+        cy.get('[data_atr="singUpPhoneNumber"]').should('have.css', 'border', err_css.err_border)
+        cy.get('[data_atr="singUpPhoneNumber"]').clear()
+        cy.get('[data_atr="singUpPhoneNumber"]').type(creds_tenant.phoneTenant)
+        cy.get('[type="submit"]').click()
 
-    //cy.xpath('//input[@"]/following-sibling::div').should('have.text', '')
-    //cy.xpath('//input[@"]/following-sibling::div').should('have.text', '')
-    //cy.xpath('//input[@"]/following-sibling::div').should('have.text', '')
-    //cy.xpath('//input[@"]/following-sibling::div').should('have.text', '')
-
-
-    //cy.get('[]')
+        // After update need refactoring
+        //cy.wait(1000)
+        cy.get('[data_atr="codeInput"]').type('111111')
+        cy.get('[type="submit"]').click()
+        cy.contains('My account')
+        cy.contains('Welcome!')
+        cy.contains('You have successfully finished registration.')
+        cy.contains('Find Spaces to Book').click()
+        cy.url().should('include', '/search')
+    })
    
-
 
 })

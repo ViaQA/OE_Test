@@ -3,6 +3,8 @@
 // Creds to Host onboarding test
     let email = 'andrew.test.mail.25+100000@gmail.com'
 
+    let clearTestData = 'https://devadmin.officeexchange.com/api/v.1.0/cypress'
+
     let roleHost = '1'
     let roleGuest = '0'
     
@@ -27,7 +29,7 @@
     let API_Domain = 'https://api.combinify-dev.xyz';
 
     export const creds_host = {email_host,email_restore,email_notfount, password_new, email,email_bad, password,password_bad, 
-        roleGuest, roleHost,
+        roleGuest, roleHost, clearTestData,
         last_name, first_name, team_name, position, TM_invite, TM_invite_2, host_url, TM_invite_myteam, token, API_Domain, cron_script_payment} 
 
 
@@ -74,7 +76,7 @@
     //let url_admin = 'https://stage.officeexchange.com'
     let url_admin = 'https://devadmin.officeexchange.com/'
     let email_admin = 'andrew.test.mail.25+100500@gmail.com'
-    let password_admin = 'Vj7PUd7z87NDSqV'
+    let password_admin = 'ecLCmHYHT@a1'
     let icon_header = 'Icon header autotest'
     let image_header = 'Image header autotest'
     let image_desc = 'Image description'

@@ -30,14 +30,14 @@ let custom_time_avail = '10:00 AM - 02:00 PM'
 let custom_start_time = '10:00'
 let custom_end_time = '02:00'
 
-let address_queens = '144-2 135th Ave, Queens, NY 11436, USA'
+let address_queens = '144-2 135th Ave, Queens, NY, 11420, USA'
 let addres_queens_num = '144-2'
 let addres_queens_street = '135th Ave'
 let addres_queens_city = 'Queens'
 let address_queens_zip = '11436'
 let addres_queens_state = 'NY'
 
-let addres_lakesucces = '12 Jeffrey Ln, Lake Success, NY 11020, USA'
+let addres_lakesucces = '12 Jeffrey Ln, Lake Success, NY, 11020, USA'
 let addres_lakesucces_num = '12'
 let addres_lakesucces_street = 'Jeffrey Ln'
 let addres_lakesucces_city = 'Lake Success'
@@ -47,6 +47,11 @@ let apt = '123'
 
 let square_ft1 = '351'
 let capacity_1 = '50-100'
+
+let custom_amen1 = "first custom amenities"
+let custom_amen2 = "deleted custom amenities"
+let custom_amen3 = "custom amenities editable"
+let custom_amen_edited = "edited custom amen"
 export const listData = {home_text, step1,step2,step3,step4,step5,
     addres_lakesucces, addres_queens_city, addres_queens_num, addres_queens_state,
     addres_queens_street, address_queens, address_queens_zip,
@@ -55,4 +60,5 @@ export const listData = {home_text, step1,step2,step3,step4,step5,
     custom_start_time, addres_lakesucces, addres_lakesucces_city, addres_lakesucces_num,
     addres_lakesucces_street ,pricing_text , apt, addres_lakesucces_zip,
     data_event, data_meeting, data_offce, data_other, data_retail,
+    custom_amen1, custom_amen2, custom_amen3, custom_amen_edited,
     meetingRoomName, meetingRoomDescription, square_ft1, capacity_1}

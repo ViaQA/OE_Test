@@ -60,7 +60,7 @@ describe('Check list space flow', () => {
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createListing"]').click()
         cy.get('[type="submit"]').should('be.disabled')
-        cy.get(kindOfSpace).click()
+        cy.get(kindOfSpace).click({force: true})
 
         
         
@@ -92,6 +92,7 @@ describe('Check list space flow', () => {
         cy.get('[type="submit"]').click()
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + 'MeetingRooms')
         }else{
@@ -104,7 +105,7 @@ describe('Check list space flow', () => {
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createListing"]').click()
-        cy.get(kindOfSpace).click()
+        cy.get(kindOfSpace).click({force: true})
         cy.get('[type="submit"]').click()
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '2' )
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '2')
@@ -209,6 +210,7 @@ describe('Check list space flow', () => {
        
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '2')
         }else{
@@ -222,7 +224,7 @@ describe('Check list space flow', () => {
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createListing"]').click()
-        cy.get(kindOfSpace).click()
+        cy.get(kindOfSpace).click({force: true})
         cy.get('[type="submit"]').click()
 
         //Uniqe space name validation at create
@@ -303,6 +305,7 @@ describe('Check list space flow', () => {
        
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '3')
         }else{
@@ -318,7 +321,7 @@ describe('Check list space flow', () => {
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createListing"]').click()
-        cy.get(kindOfSpace).click()
+        cy.get(kindOfSpace).click({force: true})
         cy.get('[type="submit"]').click()
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '4' )
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '4')
@@ -398,6 +401,7 @@ describe('Check list space flow', () => {
 
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '4')
         }else{
@@ -412,7 +416,7 @@ describe('Check list space flow', () => {
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createListing"]').click()
-        cy.get(kindOfSpace).click()
+        cy.get(kindOfSpace).click({force: true})
         cy.get('[type="submit"]').click()
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '5' )
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '5')
@@ -483,6 +487,7 @@ describe('Check list space flow', () => {
 
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '5')
         }else{
@@ -496,7 +501,7 @@ describe('Check list space flow', () => {
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createListing"]').click()
-        cy.get(kindOfSpace).click()
+        cy.get(kindOfSpace).click({force: true})
         cy.get('[type="submit"]').click()
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '6' )
         cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + '6')
@@ -574,10 +579,198 @@ describe('Check list space flow', () => {
 
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.wait(2000)
           cy.get('[data_atr="draftSpace"]').click()
           cy.contains(listData.meetingRoomName + '6')
         }else{
           cy.get('[data_atr="exit_mobile"]').click()
         }
     })
+
+    it('Create custom amenities test', () => {
+      if (Cypress.config("viewportWidth") < 760 ) {
+        cy.get('[data_atr="burger_menu"]').click({force: true })
+      }
+      cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+      cy.get('[data_atr="createListing"]').click()
+      cy.get(kindOfSpace).click({force: true})
+      cy.get('[type="submit"]').click()
+      cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'custom amen' )
+      cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription + 'custom amen')
+      cy.get('[type="submit"]').click()
+      cy.contains(listData.step3)
+      cy.get('[data_atr="Monday"]').click()
+      cy.get('[data_atr="time24Hour"]').click()
+      cy.get('[data_atr="applyModal"]').click()
+      cy.get('[data_atr="Thursday"]').click('')
+      cy.get('[data_atr="timeClosed"]').click()
+      cy.get('[data_atr="applyModal"]').click()
+      cy.get('[data_atr="Wednesday"]').click()
+      cy.get('[data-qa="start-time"]').type('1011')
+      cy.get('[data-qa="start-time"]').should('have.value', listData.custom_start_time)
+      cy.get('[data-qa="end-time"]').type('0222')
+      cy.get('[data-qa="end-time"]').should('have.value', listData.custom_end_time)
+      cy.get('[data_atr="closeAMPM"]').click()
+      cy.get('[data_atr="applyModal"]').click()
+      cy.get('[type="submit"]').click()
+      cy.contains(listData.step4)
+      cy.get('[data_atr="Hourly"]').click({force: true})
+      cy.get('[name="pricing.hourly"]').type(listData.priceHourly)
+      cy.get('[data_atr="Daily"]').click({force: true})
+      cy.get('[name="pricing.daily"]').type(listData.priceDaily)
+      cy.get('[data_atr="Monthly"]').click({force: true})
+      cy.get('[name="pricing.monthly"]').type(listData.priceMonthly)
+      cy.get('[name="capturePrice"]').type(listData.securityDep)
+      cy.get('[type="submit"]').click()
+      cy.contains(listData.step5)
+      cy.get('[name="streetAddress"]').type(listData.address_queens)
+      cy.wait(1000)
+      cy.contains(listData.address_queens).click()
+      cy.get('[name="apt"]').type(listData.apt)
+      cy.xpath('//div[text()="Enter floor(s) number"]').click()
+      cy.contains(creds_space.flor_1).click({force: true})
+      cy.contains(creds_space.flor_2).click({force: true})
+      cy.contains(creds_space.flor_3).click({force: true})
+      cy.contains(creds_space.flor_4).click({force: true})
+      cy.get('[type="submit"]').click()
+      cy.contains(listData.step6)
+      cy.get('[type="submit"]').should('be.disabled')
+      cy.get('[name="square"]').type(listData.square_ft1)
+      cy.get('[data-value="50-100"]').click()
+      cy.get('[data-value="50-100"]').should('have.css', 'background-color', signup_css.violet_800)
+      cy.get('[type="submit"]').click()
+      cy.contains(listData.step7)
+      cy.get('[type="submit"]').should('be.disabled')
+      cy.get('[name="file"]').parent().selectFile("cypress/fixtures/img_more_10mb.jpg" , {subjectType: 'drag-n-drop'})
+     // cy.get('[name="file"]').parent().parent().should('have.css', 'border', err_css.err_border)                      
+      cy.contains('Images must be smaller than 10mb.')
+      //.should('have.css', 'color', err_css.err_color)
+      cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
+          "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
+          "cypress/fixtures/img6.jpg", "cypress/fixtures/logo.jfif", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])              
+      cy.contains('You cannot upload more than 10 images at a time.')
+      //.should('have.css', 'color', err_css.err_color)
+      cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
+          "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
+          "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
+      cy.wait(13000)
+      cy.xpath('//button[@data-id="2"]').click({ multiple: true })
+      cy.xpath('//button[text()="Delete"]').click()
+      cy.get('[type="submit"]').click()
+
+      //Initial step 
+      cy.get('[type="submit"]').should('be.disabled')
+      cy.get('[data_atr="access"]').click()
+      cy.get('[type="submit"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.contains(listData.step8)
+      
+      //Add custom amenities don`t saved
+      cy.get('[data_atr="add_amenity"]').click()
+      cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)
+      cy.get('[data_atr="amenity_input"]').type(listData.custom_amen1)
+      cy.get('[data_atr="amenity_input"]').should('have.css', 'border', signup_css.border_darkblue)
+      cy.get('[data_atr="amenity_input"]').should('have.value', listData.custom_amen1)
+      cy.get('[data_atr="close_amen"]').click()
+
+      //Add custom amenities don`t saved close popup
+      cy.get('[data_atr="add_amenity"]').click()
+      cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)
+      cy.get('[data_atr="amenity_input"]').type(listData.custom_amen1)
+      cy.get('[data_atr="amenity_input"]').should('have.css', 'border', signup_css.border_darkblue)
+      cy.get('[data_atr="amenity_input"]').should('have.value', listData.custom_amen1)
+      cy.get('[data_atr="close"]').click()
+      
+      //Add first custom amenities
+      cy.get('[data_atr="add_amenity"]').click()
+      cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)
+      cy.get('[data_atr="amenity_input"]').type(listData.custom_amen1)
+      cy.get('[data_atr="amenity_input"]').should('have.css', 'border', signup_css.border_darkblue)
+      cy.get('[data_atr="amenity_input"]').should('have.value', listData.custom_amen1)
+      cy.get('[data_atr="save_amen"]').click()
+
+      //Add second custom amenities
+      cy.get('[data_atr="add_amenity"]').click()
+      cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)
+      cy.get('[data_atr="amenity_input"]').type(listData.custom_amen2)
+      cy.get('[data_atr="amenity_input"]').should('have.css', 'border', signup_css.border_darkblue)
+      cy.get('[data_atr="amenity_input"]').should('have.value', listData.custom_amen2)
+      cy.get('[data_atr="save_amen"]').click()
+
+      //Add custom amenities for edit it
+      cy.get('[data_atr="add_amenity"]').click()
+      cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)
+      cy.get('[data_atr="amenity_input"]').type(listData.custom_amen3)
+      cy.get('[data_atr="amenity_input"]').should('have.css', 'border', signup_css.border_darkblue)
+      cy.get('[data_atr="amenity_input"]').should('have.value', listData.custom_amen3)
+      cy.get('[data_atr="save_amen"]').click()
+
+      //Delete custom amenities NOT apply
+      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="del__0"]').click()
+      cy.get('[data_atr="close_modal"]').click()
+      cy.get('[data_atr="edit_Custom"]').click()
+      cy.contains(listData.custom_amen1)
+
+      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="del__0"]').click()
+      cy.get('[data_atr="close_modal_edit"]').click()
+      cy.get('[data_atr="edit_Custom"]').click()
+      cy.contains(listData.custom_amen1)
+
+      //Edit modal NOT apply
+      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_0"]').click()
+      cy.get('[data_atr="edit_amen_input"]').clear()
+      cy.get('[data_atr="edit_amen_input"]').type('Edited NOT apply')
+      cy.get('[data_atr="edit_amen_close"]').click()
+      cy.contains(listData.custom_amen1)
+
+      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_0"]').click()
+      cy.get('[data_atr="edit_amen_input"]').clear()
+      cy.get('[data_atr="edit_amen_input"]').type('Edited NOT apply')
+      cy.get('[data_atr="edit_amen_apply"]').click()
+      cy.get('[data_atr="close_modal"]').click()
+      cy.get('[data_atr="edit_Custom"]').click()
+      cy.contains(listData.custom_amen1)
+
+      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_0"]').click()
+      cy.get('[data_atr="edit_amen_input"]').clear()
+      cy.get('[data_atr="edit_amen_input"]').type('Edited NOT apply')
+      cy.get('[data_atr="edit_amen_apply"]').click()
+      cy.get('[data_atr="close_modal_edit"]').click()
+      cy.get('[data_atr="edit_Custom"]').click()
+      cy.contains(listData.custom_amen1)
+
+      //Delete custom amenities
+      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="del__1"]').click()
+      cy.get('[data_atr="save_modal_edit"]').click()
+      //need add asertion
+      
+      //Edit custom amenities
+      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_1"]').click()
+      cy.get('[data_atr="edit_amen_input"]').clear()
+      cy.get('[data_atr="edit_amen_input"]').type(listData.custom_amen_edited)
+      cy.get('[data_atr="edit_amen_apply"]').click()
+      cy.get('[data_atr="save_modal_edit"]').click()
+      
+      //Chose amenities
+      cy.contains(listData.custom_amen_edited).click()
+      cy.contains(listData.custom_amen1).click()
+      cy.get('[data_atr="security"]').click()
+
+      //Save and exit
+      if (Cypress.config("viewportWidth") > 760 ) {
+        cy.contains('Save and Exit').click()
+        cy.wait(2000)
+        cy.get('[data_atr="draftSpace"]').click()
+        cy.contains(listData.meetingRoomName + 'custom amen')
+      }else{
+        cy.get('[data_atr="exit_mobile"]').click()
+      }
+  })
 })
