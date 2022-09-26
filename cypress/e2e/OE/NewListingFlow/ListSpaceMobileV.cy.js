@@ -365,6 +365,7 @@ describe('Check list space flow', () => {
         cy.get('[name="streetAddress"]').type(listData.address_queens)
         cy.contains(listData.address_queens).click()
         cy.get('[name="apt"]').should('have.css', 'border', signup_css.border_grey_half)
+        cy.wait(1000)
         cy.get('[name="apt"]').type(listData.apt)
         cy.get('[name="apt"]').should('have.value', listData.apt)
         cy.get('[name="apt"]').should('have.css', 'border', signup_css.border_darkblue)
@@ -380,6 +381,7 @@ describe('Check list space flow', () => {
         cy.get('[name="streetAddress"]').clear()
         cy.get('[name="streetAddress"]').type(listData.addres_lakesucces)
         cy.contains(listData.addres_lakesucces).click()
+        cy.wait(1000)
         cy.get('[name="apt"]').type(listData.apt)
         cy.get('[name="apt"]').should('have.value', listData.apt)
         cy.get('[name="apt"]').should('have.css', 'border', signup_css.border_darkblue)
@@ -450,6 +452,7 @@ describe('Check list space flow', () => {
         cy.contains(listData.step5)
         cy.get('[name="streetAddress"]').type(listData.address_queens)
         cy.contains(listData.address_queens).click()
+        cy.wait(1000)
         cy.get('[name="apt"]').type(listData.apt)
         cy.xpath('//div[text()="Enter floor(s) number"]').click()
         cy.contains(creds_space.flor_1).click({force: true})
@@ -535,6 +538,7 @@ describe('Check list space flow', () => {
         cy.contains(listData.step5)
         cy.get('[name="streetAddress"]').type(listData.address_queens)
         cy.contains(listData.address_queens).click()
+        cy.wait(1000)
         cy.get('[name="apt"]').type(listData.apt)
         cy.xpath('//div[text()="Enter floor(s) number"]').click()
         cy.contains(creds_space.flor_1).click({force: true})
@@ -561,7 +565,7 @@ describe('Check list space flow', () => {
 
         
         cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
-            "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
+            "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
             "cypress/fixtures/img6.jpg", "cypress/fixtures/logo.jfif", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
         
         
@@ -570,7 +574,7 @@ describe('Check list space flow', () => {
         //.should('have.css', 'color', err_css.err_color)
 
         cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
-            "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
+            "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
             "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
 
         cy.wait(13000)
@@ -628,6 +632,7 @@ describe('Check list space flow', () => {
       cy.get('[name="streetAddress"]').type(listData.address_queens)
       cy.wait(1000)
       cy.contains(listData.address_queens).click()
+      cy.wait(1000)
       cy.get('[name="apt"]').type(listData.apt)
       cy.xpath('//div[text()="Enter floor(s) number"]').click()
       cy.contains(creds_space.flor_1).click({force: true})
@@ -648,12 +653,12 @@ describe('Check list space flow', () => {
       cy.contains('Images must be smaller than 10mb.')
       //.should('have.css', 'color', err_css.err_color)
       cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
-          "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
+          "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
           "cypress/fixtures/img6.jpg", "cypress/fixtures/logo.jfif", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])              
       cy.contains('You cannot upload more than 10 images at a time.')
       //.should('have.css', 'color', err_css.err_color)
       cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
-          "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
+          "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
           "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
       cy.wait(13000)
       cy.xpath('//button[@data-id="2"]').click({ multiple: true })
@@ -728,32 +733,32 @@ describe('Check list space flow', () => {
       cy.get('[data_atr="edit_amen_close"]').click()
       cy.contains(listData.custom_amen1)
 
-      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.get('[data_atr="edit_0"]').click()
       cy.get('[data_atr="edit_amen_input"]').clear()
       cy.get('[data_atr="edit_amen_input"]').type('Edited NOT apply')
       cy.get('[data_atr="edit_amen_apply"]').click()
       cy.get('[data_atr="close_modal"]').click()
-      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.contains(listData.custom_amen1)
 
-      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.get('[data_atr="edit_0"]').click()
       cy.get('[data_atr="edit_amen_input"]').clear()
       cy.get('[data_atr="edit_amen_input"]').type('Edited NOT apply')
       cy.get('[data_atr="edit_amen_apply"]').click()
       cy.get('[data_atr="close_modal_edit"]').click()
-      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.contains(listData.custom_amen1)
 
       //Delete custom amenities
-      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.get('[data_atr="del__1"]').click()
       cy.get('[data_atr="save_modal_edit"]').click()
       //need add asertion
       
       //Edit custom amenities
-      cy.get('[data_atr="edit_Custom"]').click()
+      cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.get('[data_atr="edit_1"]').click()
       cy.get('[data_atr="edit_amen_input"]').clear()
       cy.get('[data_atr="edit_amen_input"]').type(listData.custom_amen_edited)

@@ -59,6 +59,7 @@ describe('Check Sign up form', () => {
       cy.get('[name="streetAddress"]').type(listData.address_queens)
       cy.wait(1000)
       cy.contains(listData.address_queens).click()
+      cy.wait(1000)
       cy.get('[name="apt"]').type(listData.apt)
       cy.xpath('//div[text()="Enter floor(s) number"]').click()
       cy.contains(creds_space.flor_1).click({force: true})
@@ -79,12 +80,12 @@ describe('Check Sign up form', () => {
       cy.contains('Images must be smaller than 10mb.')
       //.should('have.css', 'color', err_css.err_color)
       cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
-          "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
+          "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
           "cypress/fixtures/img6.jpg", "cypress/fixtures/logo.jfif", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])              
       cy.contains('You cannot upload more than 10 images at a time.')
       //.should('have.css', 'color', err_css.err_color)
       cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
-          "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
+          "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
           "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
       cy.wait(13000)
       cy.xpath('//button[@data-id="2"]').click({ multiple: true })

@@ -58,6 +58,7 @@ describe('Check Sign up form', () => {
       cy.get('[name="streetAddress"]').type(listData.address_queens)
       cy.wait(1000)
       cy.contains(listData.address_queens).click()
+      cy.wait(1000)
       cy.get('[name="apt"]').type(listData.apt)
       cy.xpath('//div[text()="Enter floor(s) number"]').click()
       cy.contains(creds_space.flor_1).click({force: true})
@@ -73,26 +74,32 @@ describe('Check Sign up form', () => {
       cy.get('[type="submit"]').click()
       cy.contains(listData.step7)
       cy.get('[type="submit"]').should('be.disabled')
-      cy.get('[name="file"]').parent().selectFile("cypress/fixtures/img_more_10mb.jpg" , {subjectType: 'drag-n-drop'})
-     // cy.get('[name="file"]').parent().parent().should('have.css', 'border', err_css.err_border)                      
-      cy.contains('Images must be smaller than 10mb.')
+      
+     
       //.should('have.css', 'color', err_css.err_color)
       cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
-          "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
-          "cypress/fixtures/img6.jpg", "cypress/fixtures/logo.jfif", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])              
-      cy.contains('You cannot upload more than 10 images at a time.')
-      //.should('have.css', 'color', err_css.err_color)
-      cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
-          "cypress/fixtures/img1.jpg", "cypress/fixtures/img2.jfif", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
-          "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
+          "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
+          "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ],  {subjectType: 'drag-n-drop'})
       cy.wait(13000)
-      cy.xpath('//button[@data-id="2"]').click({ multiple: true })
-      cy.xpath('//button[text()="Delete"]').click()
+      cy.get('[data-id="1"]')
+      cy.get('[data-id="2"]')
+      cy.get('[data-id="3"]')
+      cy.get('[data-id="4"]')
+      cy.get('[data-id="5"]')
+      cy.get('[data-id="6"]')
+      cy.get('[data-id="7"]')
+      cy.get('[data-id="8"]')
+      cy.get('[data-id="9"]')
+      cy.get('[data-id="10"]')
       cy.get('[type="submit"]').click()
 
       //Check custom amenities
-      cy.contains(listData.custom_amen1)
-      cy.contains(listData.custom_amen_edited)
+      if (Cypress.config("viewportWidth") > 760 ) {
+        cy.contains(listData.custom_amen1)
+        cy.contains(listData.custom_amen_edited)
+      }
+
+      
       //Next step
       cy.get('[data_atr="access"]').click()
       cy.get('[type="submit"]').click()
@@ -163,7 +170,8 @@ describe('Check Sign up form', () => {
       cy.get('[data_atr="access"]').should('have.css', 'border', signup_css.border_violet1px)
       cy.get('[type="submit"]').click()
       cy.get('[type="submit"]').click()
-      cy.contains([listData.meetingRoomName + 'Preview'])
+      cy.wait(2000)
+      cy.contains(listData.meetingRoomName + 'Preview')
       cy.contains('other')
 
       // Check navigation to Duplicate flow 

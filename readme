@@ -13,5 +13,11 @@ Delete home page custom items after autotest
 DELETE FROM `homepages`
 WHERE `header` LIKE '%autotest%'
 
+Delete custom amenities from test host account
+
+UPDATE `users` SET
+`custom_amenities` = NULL
+WHERE `email` = 'andrew.test.mail.25+100000@gmail.com'
+
 
 
