@@ -4,6 +4,7 @@ let data_offce= '[data_atr="officeSpace"]'
 let data_event = '[data_atr="eventSpace"]'
 let data_retail = '[data_atr="retailSpace"]'
 let data_other = '[data_atr="otherSpace"]'
+let data_coworking = '[data_atr="coworking"]'
 
 
 let home_text = "Book short term spaces that work for you when you need it."
@@ -30,14 +31,17 @@ let custom_time_avail = '10:00 AM - 02:00 PM'
 let custom_start_time = '10:00'
 let custom_end_time = '02:00'
 
-let address_queens = '144-2 135th Ave, Queens, NY, 11420, USA'
-let addres_queens_num = '144-2'
-let addres_queens_street = '135th Ave'
+let address_newyork = '144-2 10th Avenue, New York, NY, USA'
+
+
+let address_queens = '120-55 166th Street, Queens, NY, USA'
+let addres_queens_num = '120-55'
+let addres_queens_street = '166th St'
 let addres_queens_city = 'Queens'
-let address_queens_zip = '11436'
+let address_queens_zip = '11434'
 let addres_queens_state = 'NY'
 
-let addres_lakesucces = '12 Jeffrey Ln, Lake Success, NY, 11020, USA'
+let addres_lakesucces = '12 Jeffrey Ln, Lake Success, NY 11020, USA'
 let addres_lakesucces_num = '12'
 let addres_lakesucces_street = 'Jeffrey Ln'
 let addres_lakesucces_city = 'Lake Success'
@@ -60,5 +64,5 @@ export const listData = {home_text, step1,step2,step3,step4,step5,
     custom_start_time, addres_lakesucces, addres_lakesucces_city, addres_lakesucces_num,
     addres_lakesucces_street ,pricing_text , apt, addres_lakesucces_zip,
     data_event, data_meeting, data_offce, data_other, data_retail,
-    custom_amen1, custom_amen2, custom_amen3, custom_amen_edited,
+    custom_amen1, custom_amen2, custom_amen3, custom_amen_edited, data_coworking,
     meetingRoomName, meetingRoomDescription, square_ft1, capacity_1}

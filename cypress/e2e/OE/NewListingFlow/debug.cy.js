@@ -6,6 +6,11 @@ import { listData } from "./ListData"
 let kindOfSpace = listData.data_offce
 describe('Check Sign up form', () => {
     beforeEach(() => {
+
+      cy.origin(creds_admin.url_admin, () =>{
+        
+      } )
+      
         cy.visit(creds_host.host_url)
         cy.log(Cypress.config("viewportWidth"))
         //cy.xpath('//span[text()="Sign in"]/parent::a').click()

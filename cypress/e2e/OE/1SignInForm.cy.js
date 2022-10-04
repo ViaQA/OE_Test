@@ -1,11 +1,12 @@
 
 import { err_css, signup_css } from './css';
-import {creds_host} from './Var';
+import {creds_admin, creds_host} from './Var';
 
 describe('Check Sign in form', () => {
 
   //Mobile and desctop +
     beforeEach(() => {
+      
       cy.visit(creds_host.host_url)
       if (Cypress.config("viewportWidth") < 760 ) {
         cy.get('[data_atr="burger_menu"]').click({force: true })

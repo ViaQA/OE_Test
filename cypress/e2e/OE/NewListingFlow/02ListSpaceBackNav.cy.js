@@ -108,14 +108,14 @@ describe('Check Sign up form', () => {
       cy.get('[data_atr="preview_save"]').click()
 
       //back to first step
-      cy.get('[data_atr="back_btn"]').click()
-      cy.get('[data_atr="back_btn"]').click()
-      cy.get('[data_atr="back_btn"]').click()
-      cy.get('[data_atr="back_btn"]').click()
-      cy.get('[data_atr="back_btn"]').click()
-      cy.get('[data_atr="back_btn"]').click()
-      cy.get('[data_atr="back_btn"]').click()
-      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click({force: true})
+      cy.get('[data_atr="back_btn"]').click({force: true})
+      cy.get('[data_atr="back_btn"]').click({force: true})
+      cy.get('[data_atr="back_btn"]').click({force: true})
+      cy.get('[data_atr="back_btn"]').click({force: true})
+      cy.get('[data_atr="back_btn"]').click({force: true})
+      cy.get('[data_atr="back_btn"]').click({force: true})
+      cy.get('[data_atr="back_btn"]').click({force: true})
 
       cy.get(listData.data_other).click()
       cy.get('[type="submit"]').click()

@@ -1,6 +1,7 @@
-/node_modules
-/cypress/videos
+\node_modules
+\cypress/videos
 package-lock.json
-package.json
 yarn-error.log
-/cypress/screenshots
+\cypress\screenshots
+\mochawesome-report
+\screenshots

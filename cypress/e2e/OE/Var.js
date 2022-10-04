@@ -7,6 +7,8 @@
 
     let roleHost = '1'
     let roleGuest = '0'
+
+    let email_subscribe = 'andrew.test.mail.25+100000@gmail.com'
     
     let email_host = 'andrew.test.mail.25+100000@gmail.com'
     let email_bad = 'andrew.test.mail.25+12@gmail.com'

@@ -775,6 +775,7 @@ describe('Check list space flow', () => {
         cy.contains('Save and Exit').click()
         cy.wait(2000)
         cy.get('[data_atr="draftSpace"]').click()
+        cy.get('[data-title="next"]').click()
         cy.contains(listData.meetingRoomName + 'custom amen')
       }else{
         cy.get('[data_atr="exit_mobile"]').click()
