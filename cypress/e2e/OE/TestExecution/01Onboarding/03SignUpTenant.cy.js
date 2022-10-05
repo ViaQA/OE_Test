@@ -1,7 +1,7 @@
 
-import { err_css, signup_css } from './css';
-import {creds_tenant} from './Var';
-import {creds_host} from './Var';
+import { err_css, signup_css } from '../../css';
+import {creds_tenant} from '../../Var';
+import {creds_host} from '../../Var';
 
 
 
@@ -194,7 +194,6 @@ describe('Check Sign up form', () => {
         //cy.wait(1000)
         cy.get('[data_atr="codeInput"]').type('111111')
         cy.get('[type="submit"]').click()
-        cy.contains('My account')
         cy.contains('Welcome!')
         cy.contains('You have successfully finished registration.')
         cy.contains('Find Spaces to Book').click()

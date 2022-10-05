@@ -1,6 +1,6 @@
 
-import { err_css, signup_css } from "../css"
-import { creds_host, creds_space } from "../Var"
+import { err_css, signup_css } from "../../css"
+import { creds_host, creds_space } from "../../Var"
 import { listData } from "./ListData"
 
 let kindOfSpace = listData.data_other

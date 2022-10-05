@@ -1,6 +1,6 @@
 
-import { err_css, signup_css } from './css';
-import {creds_admin, creds_host} from './Var';
+import { err_css, signup_css } from '../../css';
+import {creds_admin, creds_host} from '../../Var';
 
 describe('Check Sign in form', () => {
 

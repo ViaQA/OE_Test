@@ -1,11 +1,16 @@
 
 import { err_css, signup_css } from "../css"
 import { creds_host, creds_space } from "../Var"
-import { listData } from "./ListData"
+import { listData } from "./TestExecution/02NewListingFlow/ListData"
 
 let kindOfSpace = listData.data_offce
 describe('Check Sign up form', () => {
     beforeEach(() => {
+
+      cy.origin(creds_admin.url_admin, () =>{
+        
+      } )
+      
         cy.visit(creds_host.host_url)
         cy.log(Cypress.config("viewportWidth"))
         //cy.xpath('//span[text()="Sign in"]/parent::a').click()
@@ -19,12 +24,13 @@ describe('Check Sign up form', () => {
         cy.get('[type="submit"]').click()
       })
 
-    it('Create draft space then back navigation check', () => {
+    it('Duplicate', () => {
       if (Cypress.config("viewportWidth") < 760 ) {
         cy.get('[data_atr="burger_menu"]').click({force: true })
       }
       cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
-      cy.get('[data_atr="createListing"]').click()
+      cy.get('[data_atr="duplicateListing"]').click()
+
       cy.get(kindOfSpace).click()
       cy.get('[type="submit"]').click()
       cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'Preview' )
@@ -74,32 +80,26 @@ describe('Check Sign up form', () => {
       cy.get('[type="submit"]').click()
       cy.contains(listData.step7)
       cy.get('[type="submit"]').should('be.disabled')
-      
-     
+      cy.get('[name="file"]').parent().selectFile("cypress/fixtures/img_more_10mb.jpg" , {subjectType: 'drag-n-drop'})
+     // cy.get('[name="file"]').parent().parent().should('have.css', 'border', err_css.err_border)                      
+      cy.contains('Images must be smaller than 10mb.')
       //.should('have.css', 'color', err_css.err_color)
       cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
           "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
-          "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ],  {subjectType: 'drag-n-drop'})
+          "cypress/fixtures/img6.jpg", "cypress/fixtures/logo.jfif", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])              
+      cy.contains('You cannot upload more than 10 images at a time.')
+      //.should('have.css', 'color', err_css.err_color)
+      cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
+          "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
+          "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
       cy.wait(13000)
-      cy.get('[data-id="1"]')
-      cy.get('[data-id="2"]')
-      cy.get('[data-id="3"]')
-      cy.get('[data-id="4"]')
-      cy.get('[data-id="5"]')
-      cy.get('[data-id="6"]')
-      cy.get('[data-id="7"]')
-      cy.get('[data-id="8"]')
-      cy.get('[data-id="9"]')
-      cy.get('[data-id="10"]')
+      cy.xpath('//button[@data-id="2"]').click({ multiple: true })
+      cy.xpath('//button[text()="Delete"]').click()
       cy.get('[type="submit"]').click()
 
       //Check custom amenities
-      if (Cypress.config("viewportWidth") > 760 ) {
-        cy.contains(listData.custom_amen1)
-        cy.contains(listData.custom_amen_edited)
-      }
-
-      
+      cy.contains(listData.custom_amen1)
+      cy.contains(listData.custom_amen_edited)
       //Next step
       cy.get('[data_atr="access"]').click()
       cy.get('[type="submit"]').click()
@@ -108,14 +108,14 @@ describe('Check Sign up form', () => {
       cy.get('[data_atr="preview_save"]').click()
 
       //back to first step
-      cy.get('[data_atr="back_btn"]').click({force: true})
-      cy.get('[data_atr="back_btn"]').click({force: true})
-      cy.get('[data_atr="back_btn"]').click({force: true})
-      cy.get('[data_atr="back_btn"]').click({force: true})
-      cy.get('[data_atr="back_btn"]').click({force: true})
-      cy.get('[data_atr="back_btn"]').click({force: true})
-      cy.get('[data_atr="back_btn"]').click({force: true})
-      cy.get('[data_atr="back_btn"]').click({force: true})
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
+      cy.get('[data_atr="back_btn"]').click()
 
       cy.get(listData.data_other).click()
       cy.get('[type="submit"]').click()
@@ -170,20 +170,16 @@ describe('Check Sign up form', () => {
       cy.get('[data_atr="access"]').should('have.css', 'border', signup_css.border_violet1px)
       cy.get('[type="submit"]').click()
       cy.get('[type="submit"]').click()
-      cy.wait(2000)
-      cy.contains(listData.meetingRoomName + 'Preview')
-      cy.contains('other')
 
-      // Check navigation to Duplicate flow 
-      cy.get('[data_atr="createSpace"]').click()
-      cy.get('[data_atr="close_modal"]').click()
-      cy.get('[data_atr="createSpace"]').click()
-      cy.get('[data_atr="close_modal_btn"]').click()
-      cy.get('[data_atr="createSpace"]').click()
-      cy.get('[data_atr="duplicateListing"]').click()
-      cy.get('[data_atr="continue_modal_btn"]').click()
-      cy.get('[data_atr="search_duplicate"]')
-      cy.get('[data_atr="search_duplicate_btn"]')
+      //Save and exit
+      //if (Cypress.config("viewportWidth") > 760 ) {
+        //cy.contains('Save and Exit').click()
+        // cy.wait(2000)
+      //   cy.get('[data_atr="draftSpace"]').click()
+      //   cy.contains(listData.meetingRoomName + '6')
+      // }else{
+      //   cy.get('[data_atr="exit_mobile"]').click()
+      // }
   })
 })
 

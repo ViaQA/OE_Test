@@ -1,5 +1,5 @@
-import {creds_admin} from './Var';
-import {creds_space} from './Var';
+import {creds_admin} from '../Var';
+import {creds_space} from '../Var';
 
 describe('Check Home custom fields', () => {
 
