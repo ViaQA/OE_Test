@@ -29,7 +29,7 @@
 
     export const creds_host = {email_host,email_restore,email_notfount, password_new, email,email_bad, password,password_bad, 
         roleGuest, roleHost, clearTestData,
-        last_name, first_name, team_name, position, TM_invite, TM_invite_2, host_url, TM_invite_myteam, token, API_Domain, cron_script_payment} 
+        last_name, first_name, team_name, position, host_url, cron_script_payment} 
 
 
     // Creds for space listing
