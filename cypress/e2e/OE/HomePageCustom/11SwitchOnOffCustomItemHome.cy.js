@@ -1,4 +1,4 @@
-import { creds_admin } from "./Var"
+import { creds_admin } from "../Var"
 
 //Need execute after 09Homepage/10Homepage tests
 describe('Check Sign up form', () => {
