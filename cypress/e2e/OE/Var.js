@@ -21,14 +21,11 @@
     let first_name = 'Cypress'
     let team_name = 'TN1rtyuiopasdfghj333'
     let position = 'Pwertyuiopasdfghj256'
-    let TM_invite = 'andrew.test.mail.25+14@gmail.com' //invited TM
-    let TM_invite_2 = 'andrew.test.mail.25+13@gmail.com' //invited TM
-    let TM_invite_myteam = 'andrew.test.mail.25+8@gmail.com' //invited TM at page my team 
     let host_url = 'http://localhost:3000' 
     let cron_script_payment = 'https://stage.officeexchange.com/api/v.1.0/cron-notifications'
    // let host_url = 'https://officeexchange.com/' 
-    let token = 'Bearer '+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJldy5idXJ5YW5vdmF0eUBiZWFubWFjaGluZS5kZXYiLCJzdWIiOjc2LCJpYXQiOjE2NDEzODIwNjgsImV4cCI6MTY0MTM4Mzg2OH0.w_LXoU91x7gzxCqoCpywY2Elk9lSr30-_-Kjv7kb9CE';
-    let API_Domain = 'https://api.combinify-dev.xyz';
+    
+    
 
     export const creds_host = {email_host,email_restore,email_notfount, password_new, email,email_bad, password,password_bad, 
         roleGuest, roleHost, clearTestData,
@@ -65,15 +62,6 @@
 
     export const creds_space = {full_address_ui, str_addres, text_true, order_floor,sqr_space_text, security_error, name_space, description_space, all_price_1, security_dep, all_price,office_price, co_price,start_price, full_address, address_start, sqr_space, kind_space, occup_space, floor_total_space, flor_1, flor_2,flor_3, flor_4, flor_5}
 
-
-
-// Creds to Tenant onboarding test
-    let email_TM = 'andrew.test.mail.25+22@gmail.com'
-    let password_TM = 'rW3Sz&3Y' 
-    let last_name_TM = 'LNertyuiopasdfghjklq'
-    let first_name_TM = 'FNertyuiopasdfghjklq'
-    let position_TM = 'Peertyuiopasdfghjklq'
-    export const creds_TM = {email_TM, password_TM, last_name_TM, first_name_TM, position_TM}
 
     //let url_admin = 'https://stage.officeexchange.com'
     let url_admin = 'https://devadmin.officeexchange.com/'

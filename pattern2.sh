@@ -7,3 +7,4 @@ npx cypress run --reporter mochawesome --spec "cypress/e2e/01clearTestData.cy.js
 
 
 $SHELL
+
