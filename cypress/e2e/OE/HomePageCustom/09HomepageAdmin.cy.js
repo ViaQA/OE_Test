@@ -3,13 +3,16 @@ import {creds_space} from '../Var';
 
 describe('Check Home custom fields', () => {
 
-
-    it( "Test create icon item at home page", ()=>{
-
+    beforeEach(() =>{
         cy.visit(creds_admin.url_admin)
         cy.get('[id="email"]').type(creds_admin.email_admin)
         cy.get('[id="password"]').type(creds_admin.password_admin)
         cy.get('[type="submit"]').click()
+    })
+
+
+    it( "Test create icon item at home page", ()=>{
+
         cy.get('[class="fas fa-home"]').click()
         cy.get('[class="btn btn-outline-primary"]').click()
         cy.get('[onchange="changetype(this)"]').select('Icon')
@@ -22,10 +25,6 @@ describe('Check Home custom fields', () => {
     )
     it( "Test create icon item at home page SVG", ()=>{
 
-        cy.visit(creds_admin.url_admin)
-        cy.get('[id="email"]').type(creds_admin.email_admin)
-        cy.get('[id="password"]').type(creds_admin.password_admin)
-        cy.get('[type="submit"]').click()
         cy.get('[class="fas fa-home"]').click()
         cy.get('[class="btn btn-outline-primary"]').click()
         cy.get('[onchange="changetype(this)"]').select('Icon')
@@ -38,10 +37,6 @@ describe('Check Home custom fields', () => {
 
     it( "Test create image with text item at home page", ()=>{
 
-        cy.visit(creds_admin.url_admin)
-        cy.get('[id="email"]').type(creds_admin.email_admin)
-        cy.get('[id="password"]').type(creds_admin.password_admin)
-        cy.get('[type="submit"]').click()
         cy.get('[class="fas fa-home"]').click()
         cy.get('[class="btn btn-outline-primary"]').click()
         cy.get('[onchange="changetype(this)"]').select('Image with text')
@@ -59,10 +54,6 @@ describe('Check Home custom fields', () => {
 
     it( "Test create Square with background item at home page", ()=>{
 
-        cy.visit(creds_admin.url_admin)
-        cy.get('[id="email"]').type(creds_admin.email_admin)
-        cy.get('[id="password"]').type(creds_admin.password_admin)
-        cy.get('[type="submit"]').click()
         cy.get('[class="fas fa-home"]').click()
         cy.get('[class="btn btn-outline-primary"]').click()
         cy.get('[onchange="changetype(this)"]').select('Square with background')
@@ -77,10 +68,6 @@ describe('Check Home custom fields', () => {
     
     it( "Test create Homepage text", ()=>{
 
-        cy.visit(creds_admin.url_admin)
-        cy.get('[id="email"]').type(creds_admin.email_admin)
-        cy.get('[id="password"]').type(creds_admin.password_admin)
-        cy.get('[type="submit"]').click()
         cy.get('[class="fas fa-home"]').click()
         cy.get('[class="btn btn-outline-primary"]').click()
         cy.get('[onchange="changetype(this)"]').select('Homepage Text')
@@ -93,10 +80,6 @@ describe('Check Home custom fields', () => {
 
     it( "Test create Homepage banner 1", ()=>{
 
-        cy.visit(creds_admin.url_admin)
-        cy.get('[id="email"]').type(creds_admin.email_admin)
-        cy.get('[id="password"]').type(creds_admin.password_admin)
-        cy.get('[type="submit"]').click()
         cy.get('[class="fas fa-home"]').click()
         cy.get('[class="btn btn-outline-primary"]').click()
         cy.get('[onchange="changetype(this)"]').select('Homepage banner 1')
@@ -109,10 +92,6 @@ describe('Check Home custom fields', () => {
 
     it( "Test create Homepage banner 2", ()=>{
 
-        cy.visit(creds_admin.url_admin)
-        cy.get('[id="email"]').type(creds_admin.email_admin)
-        cy.get('[id="password"]').type(creds_admin.password_admin)
-        cy.get('[type="submit"]').click()
         cy.get('[class="fas fa-home"]').click()
         cy.get('[class="btn btn-outline-primary"]').click()
         cy.get('[onchange="changetype(this)"]').select('Homepage banner 2')
@@ -125,10 +104,6 @@ describe('Check Home custom fields', () => {
 
     it( "Test create Homepage banner 3", ()=>{
 
-        cy.visit(creds_admin.url_admin)
-        cy.get('[id="email"]').type(creds_admin.email_admin)
-        cy.get('[id="password"]').type(creds_admin.password_admin)
-        cy.get('[type="submit"]').click()
         cy.get('[class="fas fa-home"]').click()
         cy.get('[class="btn btn-outline-primary"]').click()
         cy.get('[onchange="changetype(this)"]').select('Homepage banner 3')
@@ -141,10 +116,6 @@ describe('Check Home custom fields', () => {
     
     it( "Test switch on new item at home page", ()=>{
 
-        cy.visit(creds_admin.url_admin)
-        cy.get('[id="email"]').type(creds_admin.email_admin)
-        cy.get('[id="password"]').type(creds_admin.password_admin)
-        cy.get('[type="submit"]').click()
         cy.get('[class="fas fa-home"]').click()
         cy.get('[class="btn btn-outline-warning mr-1"]').click({multiple:true})
 
