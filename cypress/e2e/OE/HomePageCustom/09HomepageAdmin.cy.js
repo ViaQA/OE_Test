@@ -16,6 +16,8 @@ describe('Check Home custom fields', () => {
         cy.get('[name="header"]').type(creds_admin.icon_header)
         cy.get('[name="img"]').selectFile(["cypress/fixtures/logo.jfif"])
         cy.get('[class="btn btn-primary"]').click()
+        cy.contains('HomePage custom filters')
+
             }
     )
     it( "Test create icon item at home page SVG", ()=>{
@@ -30,6 +32,7 @@ describe('Check Home custom fields', () => {
         cy.get('[name="header"]').type(creds_admin.icon_header)
         cy.get('[name="img"]').selectFile(["cypress/fixtures/biotech.svg"])
         cy.get('[class="btn btn-primary"]').click()
+        cy.contains('HomePage custom filters')
             }
     )
 
@@ -48,6 +51,7 @@ describe('Check Home custom fields', () => {
         cy.get('[name="button_text"]').type(creds_admin.img_btn_text)
         cy.get('[name="link"]').type(creds_admin.img_link)
         cy.get('[class="btn btn-primary"]').click()
+        cy.contains('HomePage custom filters')
                 }
     )
    
@@ -67,6 +71,71 @@ describe('Check Home custom fields', () => {
         cy.get('[name="button_text"]').type(creds_admin.square_btn_text)
         cy.get('[name="link"]').type(creds_admin.square_link)
         cy.get('[class="btn btn-primary"]').click()
+        cy.contains('HomePage custom filters')
+                }
+    )
+    
+    it( "Test create Homepage text", ()=>{
+
+        cy.visit(creds_admin.url_admin)
+        cy.get('[id="email"]').type(creds_admin.email_admin)
+        cy.get('[id="password"]').type(creds_admin.password_admin)
+        cy.get('[type="submit"]').click()
+        cy.get('[class="fas fa-home"]').click()
+        cy.get('[class="btn btn-outline-primary"]').click()
+        cy.get('[onchange="changetype(this)"]').select('Homepage Text')
+        cy.get('[name="header"]').type(creds_admin.home_text_header)
+        cy.get('[name="description"]').type(creds_admin.home_text_desc)
+        cy.get('[class="btn btn-primary"]').click()
+        cy.contains('HomePage custom filters')
+                }
+    )
+
+    it( "Test create Homepage banner 1", ()=>{
+
+        cy.visit(creds_admin.url_admin)
+        cy.get('[id="email"]').type(creds_admin.email_admin)
+        cy.get('[id="password"]').type(creds_admin.password_admin)
+        cy.get('[type="submit"]').click()
+        cy.get('[class="fas fa-home"]').click()
+        cy.get('[class="btn btn-outline-primary"]').click()
+        cy.get('[onchange="changetype(this)"]').select('Homepage banner 1')
+        cy.get('[name="header"]').type(creds_admin.home_head_banner1)
+        cy.get('[name="img"]').selectFile(["cypress/fixtures/img1.jpg"])
+        cy.get('[class="btn btn-primary"]').click()
+        cy.contains('HomePage custom filters')
+                }
+    )
+
+    it( "Test create Homepage banner 2", ()=>{
+
+        cy.visit(creds_admin.url_admin)
+        cy.get('[id="email"]').type(creds_admin.email_admin)
+        cy.get('[id="password"]').type(creds_admin.password_admin)
+        cy.get('[type="submit"]').click()
+        cy.get('[class="fas fa-home"]').click()
+        cy.get('[class="btn btn-outline-primary"]').click()
+        cy.get('[onchange="changetype(this)"]').select('Homepage banner 2')
+        cy.get('[name="header"]').type(creds_admin.home_head_banner2)
+        cy.get('[name="img"]').selectFile(["cypress/fixtures/img1.jpg"])
+        cy.get('[class="btn btn-primary"]').click()
+        cy.contains('HomePage custom filters')
+                }
+    )
+
+    it( "Test create Homepage banner 3", ()=>{
+
+        cy.visit(creds_admin.url_admin)
+        cy.get('[id="email"]').type(creds_admin.email_admin)
+        cy.get('[id="password"]').type(creds_admin.password_admin)
+        cy.get('[type="submit"]').click()
+        cy.get('[class="fas fa-home"]').click()
+        cy.get('[class="btn btn-outline-primary"]').click()
+        cy.get('[onchange="changetype(this)"]').select('Homepage banner 3')
+        cy.get('[name="header"]').type(creds_admin.home_head_banner3)
+        cy.get('[name="img"]').selectFile(["cypress/fixtures/img1.jpg"])
+        cy.get('[class="btn btn-primary"]').click()
+        cy.contains('HomePage custom filters')
                 }
     )
     

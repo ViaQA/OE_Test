@@ -80,7 +80,16 @@
     let square_btn_text = 'square button text 123456'
     let square_btn_text_front = 'square button text 1'
     let square_link = '/test'
+
+    let home_text_header = 'Home page text header autotest'
+    let home_text_desc = 'Home page text description autotest'
+
+    let home_head_banner1 = 'banner1 autotest'
+    let home_head_banner2 = 'banner2 autotest'
+    let home_head_banner3 = 'banner3 autotest'
+
     export const creds_admin = {url_admin, email_admin, password_admin, icon_header, image_desc, image_header, img_btn_text,
+        home_head_banner1, home_head_banner2, home_head_banner3, home_text_desc, home_text_header,
          img_btn_text_front, img_link, square_btn_text, square_btn_text_front, square_desc, square_header, square_link}
 
 

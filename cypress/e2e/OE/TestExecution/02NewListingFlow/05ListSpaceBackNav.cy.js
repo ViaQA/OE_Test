@@ -4,7 +4,7 @@ import { creds_host, creds_space } from "../../Var"
 import { listData } from "./ListData"
 
 let kindOfSpace = listData.data_offce
-describe('Check Sign up form', () => {
+describe('Check create listing with back navigation', () => {
     beforeEach(() => {
         cy.visit(creds_host.host_url)
         cy.log(Cypress.config("viewportWidth"))
@@ -172,7 +172,7 @@ describe('Check Sign up form', () => {
       cy.get('[type="submit"]').click()
       cy.wait(2000)
       cy.contains(listData.meetingRoomName + 'Preview')
-      cy.contains('other')
+      cy.contains('Other')
 
       // Check navigation to Duplicate flow 
       cy.get('[data_atr="createSpace"]').click()

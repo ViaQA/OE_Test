@@ -1,5 +1,5 @@
 
-import { creds_admin, creds_host } from "./Var"
+import { creds_admin, creds_host } from "../Var"
 
 describe('Check Sign up form', () => {
 
@@ -21,6 +21,18 @@ describe('Check Sign up form', () => {
         cy.contains(creds_admin.square_header)
         cy.contains(creds_admin.square_btn_text_front).click()
         cy.url().should('include', creds_admin.square_link)
+    })
+
+    it("Test check Home text test", ()=>{
+        cy.contains(creds_admin.home_text_header)
+        cy.contains(creds_admin.home_text_desc)
+    })
+
+    it("Test check Home home banners", ()=>{
+        cy.get('[alt="banner1 autotest"]')
+        cy.get('[alt="banner2 autotest"]')
+        cy.get('[alt="banner3 autotest"]')
+        
     })
 
 })

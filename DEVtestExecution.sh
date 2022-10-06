@@ -1,24 +1,7 @@
 #!/bin/bash
 
-npx cypress run --spec "cypress/e2e/01clearTestData.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --tag "Clear test data"
+npx cypress run --spec "cypress/e2e/01clearTestData.cy.js,cypress/e2e/OE/TestExecution/" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=375,viewportHeight=677 --tag "Onboadring, List space, [Mobile]"
+npx cypress run --spec "cypress/e2e/01clearTestData.cy.js,cypress/e2e/OE/TestExecution/" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=1980,viewportHeight=1024 --tag "Onboadring, List space, [DESKTOP]"
+npx cypress run --spec "cypress/e2e/01clearTestData.cy.js,cypress/e2e/OE/HomePageCustom/" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=1980,viewportHeight=1024 --tag "Home page custom fields"
 
-npx cypress run --spec "cypress/e2e/OE/01SignUpTenant.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=375,viewportHeight=677 --tag "Sign Up tenant [Mobile]"
-npx cypress run --spec "cypress/e2e/OE/1SignInForm.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=375,viewportHeight=677 --tag "Sign In host [MOBILE]"
-npx cypress run --spec "cypress/e2e/OE/NewListingFlow/01ListSpaceMobileV.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=375,viewportHeight=677 --tag "List space flow [MOBILE]"
-npx cypress run --spec "cypress/e2e/OE/NewListingFlow/02ListSpaceBackNav.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=375,viewportHeight=677 --tag "Create space full flow [MOBILE]"
-
-npx cypress run --spec "cypress/e2e/01clearTestData.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --tag "Clear test data"
-
-npx cypress run --spec "cypress/e2e/OE/01SignUpTenant.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=1980,viewportHeight=1024 --tag "Sign Up tenant [DESKTOP]"
-npx cypress run --spec "cypress/e2e/OE/1SignInForm.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=1980,viewportHeight=1024 --tag "Sign In host [DESKTOP]"
-npx cypress run --spec "cypress/e2e/OE/NewListingFlow/01ListSpaceMobileV.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=1980,viewportHeight=1024 --tag "List space flow [DESKTOP]"
-npx cypress run --spec "cypress/e2e/OE/NewListingFlow/02ListSpaceBackNav.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=1980,viewportHeight=1024 --tag "Create space full flow [DESKTOP]"
-
-
-
-
-npx cypress run --spec "cypress/e2e/OE/09HomepageAdmin.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=1980,viewportHeight=1024 --tag "Create test custom items at admin"
-npx cypress run --spec "cypress/e2e/OE/11SwitchOnOffCustomItemHome.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=1980,viewportHeight=1024 --tag "Switch on test custom icons"
-npx cypress run --spec "cypress/e2e/OE/10HomePageCheckCustom.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=1980,viewportHeight=1024 --tag "Check test custom icon at Home page"
-npx cypress run --spec "cypress/e2e/OE/10HomePageCheckCustom.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=375,viewportHeight=677 --tag "Check test custom icon at Home page"
-npx cypress run --spec "cypress/e2e/OE/11SwitchOnOffCustomItemHome.cy.js" --browser chrome --record --key f2351ad0-639d-413a-890a-73a36ee4d09c --config viewportWidth=1980,viewportHeight=1024 --tag "Switch off test custom icons"
+$SHELL
