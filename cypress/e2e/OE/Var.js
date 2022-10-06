@@ -3,6 +3,8 @@
 // Creds to Host onboarding test
     let email = 'andrew.test.mail.25+100000@gmail.com'
 
+    let email_duplicate = 'andrew.test.mail.25+100002@gmail.com'
+
     let clearTestData = 'https://devadmin.officeexchange.com/api/v.1.0/cypress'
 
     let roleHost = '1'
@@ -28,7 +30,7 @@
     
 
     export const creds_host = {email_host,email_restore,email_notfount, password_new, email,email_bad, password,password_bad, 
-        roleGuest, roleHost, clearTestData,
+        roleGuest, roleHost, clearTestData, email_duplicate,
         last_name, first_name, team_name, position, host_url, cron_script_payment} 
 
 

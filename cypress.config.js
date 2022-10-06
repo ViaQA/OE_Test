@@ -2,8 +2,8 @@ const { defineConfig } = require("cypress");
 
 
 module.exports = defineConfig({
-  viewportWidth: 1980,
-  viewportHeight: 1024, 
+  viewportWidth: 377,
+  viewportHeight: 677, 
   video: false,
   reporter: 'mochawesome',
   reporterOptions: {
