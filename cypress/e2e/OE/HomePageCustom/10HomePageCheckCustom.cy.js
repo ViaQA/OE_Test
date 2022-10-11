@@ -1,7 +1,7 @@
 
 import { creds_admin, creds_host } from "../Var"
 
-describe('Check Sign up form', () => {
+describe('Check custom item at Home page', () => {
 
     beforeEach(() => {
         cy.visit(creds_host.host_url)

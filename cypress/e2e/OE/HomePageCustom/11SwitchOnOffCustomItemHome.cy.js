@@ -1,7 +1,7 @@
 import { creds_admin } from "../Var"
 
 //Need execute after 09Homepage/10Homepage tests
-describe('Check Sign up form', () => {
+describe('Switch to default custom items', () => {
 
     it( "Test switch on new item at home page", ()=>{
 

@@ -1,15 +1,18 @@
 const { defineConfig } = require("cypress");
 
-
 module.exports = defineConfig({
   viewportWidth: 377,
   viewportHeight: 677, 
   video: false,
   reporter: 'mochawesome',
   reporterOptions: {
-    overwrite: false,
+    overwrite: true,
     autoOpen: true,
-    timestamp: true
+    testsuitesTitle : true,
+    saveAllAttempts: false,
+    timestamp: true,
+    charts: true,
+    
   },
   projectId: 'd6s6gb',
   e2e: {
