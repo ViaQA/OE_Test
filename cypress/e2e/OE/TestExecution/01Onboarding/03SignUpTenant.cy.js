@@ -199,6 +199,13 @@ describe('Check Sign up form', () => {
         cy.contains('Find Spaces to Book').click()
         cy.url().should('include', '/search')
     })
+    it("Test Already have an account?", ()=>{
+        cy.get('[data_atr="signinHere"]').should('have.css', 'color', signup_css.violet_800)
+        cy.get('[data_atr="signinHere"]').click()
+        cy.url().should('include', '/login')
+
+
+    })
    
 
 })
