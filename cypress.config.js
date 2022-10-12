@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   viewportWidth: 377,
   viewportHeight: 677, 
-  video: false,
+  video: true,
   reporter: 'mochawesome',
   reporterOptions: {
     overwrite: true,
