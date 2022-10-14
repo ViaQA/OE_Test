@@ -203,8 +203,6 @@ describe('Check Sign up form', () => {
         cy.get('[data_atr="signinHere"]').should('have.css', 'color', signup_css.violet_800)
         cy.get('[data_atr="signinHere"]').click()
         cy.url().should('include', '/login')
-
-
     })
    
 

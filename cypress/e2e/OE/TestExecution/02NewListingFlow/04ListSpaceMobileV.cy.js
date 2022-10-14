@@ -44,7 +44,11 @@ describe('Check list space flow', () => {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+
+        cy.get('[data_atr="createSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
+        cy.get('[data_atr="continue_modal_btn"]').click()
+        
         if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="exit_mobile"]').click()
         }else{
@@ -58,7 +62,9 @@ describe('Check list space flow', () => {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+        cy.get('[data_atr="createSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
+        cy.get('[data_atr="continue_modal_btn"]').click()
         cy.get('[type="submit"]').should('be.disabled')
         cy.get(kindOfSpace).click({force: true})
 
@@ -67,14 +73,19 @@ describe('Check list space flow', () => {
         cy.contains(listData.step1)
         cy.get('[type="submit"]').click()
         cy.contains(listData.step2)
+
+        cy.get('[name="spaceName"]').should('have.css', 'border', signup_css.border_grey_half)
+        cy.get('[name="spaceDescription"]').should('have.css', 'border', signup_css.border_grey_half)
         //OET-763 need to add check after fix
         if (Cypress.config("viewportWidth") > 760 ) {
           cy.contains('Save and Exit').click()
+          cy.get('[name="spaceName"]').should('have.css', 'border', err_css.err_border)
+          
         }
+
         
         //Grey should be 1.5px 
-        cy.get('[name="spaceName"]').should('have.css', 'border', signup_css.border_grey_half)
-        cy.get('[name="spaceDescription"]').should('have.css', 'border', signup_css.border_grey_half)
+        
         //Trigger error
         cy.get('[name="spaceName"]').click()
         cy.get('[name="spaceDescription"]').click()
@@ -104,7 +115,9 @@ describe('Check list space flow', () => {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+        cy.get('[data_atr="createSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
+        cy.get('[data_atr="continue_modal_btn"]').click()
         cy.get(kindOfSpace).click({force: true})
         cy.wait(1000)
         cy.get('[type="submit"]').click()
@@ -225,7 +238,9 @@ describe('Check list space flow', () => {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+        cy.get('[data_atr="createSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
+        cy.get('[data_atr="continue_modal_btn"]').click()
         cy.get(kindOfSpace).click({force: true})
         cy.get('[type="submit"]').click()
 
@@ -322,7 +337,9 @@ describe('Check list space flow', () => {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+        cy.get('[data_atr="createSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
+        cy.get('[data_atr="continue_modal_btn"]').click()
         cy.get(kindOfSpace).click({force: true})
         cy.get('[type="submit"]').click()
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '4' )
@@ -419,7 +436,9 @@ describe('Check list space flow', () => {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+        cy.get('[data_atr="createSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
+        cy.get('[data_atr="continue_modal_btn"]').click()
         cy.get(kindOfSpace).click({force: true})
         cy.get('[type="submit"]').click()
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '5' )
@@ -505,7 +524,9 @@ describe('Check list space flow', () => {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+        cy.get('[data_atr="createSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
+        cy.get('[data_atr="continue_modal_btn"]').click()
         cy.get(kindOfSpace).click({force: true})
         cy.get('[type="submit"]').click()
         cy.get('[name="spaceName"]').type(listData.meetingRoomName + '6' )
@@ -598,7 +619,9 @@ describe('Check list space flow', () => {
         cy.get('[data_atr="burger_menu"]').click({force: true })
       }
       cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+      cy.get('[data_atr="createSpace"]').click()
       cy.get('[data_atr="createListing"]').click()
+      cy.get('[data_atr="continue_modal_btn"]').click()
       cy.get(kindOfSpace).click({force: true})
       cy.get('[type="submit"]').click()
       cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'custom amen' )

@@ -24,7 +24,9 @@ describe('Check create listing with back navigation', () => {
         cy.get('[data_atr="burger_menu"]').click({force: true })
       }
       cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
-      cy.get('[data_atr="createListing"]').click()
+      cy.get('[data_atr="createSpace"]').click()
+        cy.get('[data_atr="createListing"]').click()
+        cy.get('[data_atr="continue_modal_btn"]').click()
       cy.get(kindOfSpace).click()
       cy.get('[type="submit"]').click()
       cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'Preview' )

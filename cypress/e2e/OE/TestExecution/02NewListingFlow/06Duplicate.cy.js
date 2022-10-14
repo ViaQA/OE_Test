@@ -23,7 +23,9 @@ describe('Check duplicate independence space flow', () => {
         cy.get('[data_atr="burger_menu"]').click({force: true })
       }
       cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+      cy.get('[data_atr="createSpace"]').click()
       cy.get('[data_atr="createListing"]').click()
+      cy.get('[data_atr="continue_modal_btn"]').click()
       cy.get(kindOfSpace).click()
       cy.get('[type="submit"]').click()
       cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'Duplicate' )
@@ -114,9 +116,15 @@ describe('Check duplicate independence space flow', () => {
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         
+        cy.get('[data_atr="createSpace"]').click()
         cy.get('[data_atr="duplicateListing"]').click({force: true})
+        cy.get('[data_atr="continue_modal_btn"]').click()
+        
         cy.get('[data_atr="back_btn"]').click({force: true})
+
+        cy.get('[data_atr="createSpace"]').click()
         cy.get('[data_atr="duplicateListing"]').click({force: true})
+        cy.get('[data_atr="continue_modal_btn"]').click()
 
         //Search space for duplicating
         cy.get('[data_atr="search_duplicate"]').type(listData.meetingRoomName + 'Duplicate')
