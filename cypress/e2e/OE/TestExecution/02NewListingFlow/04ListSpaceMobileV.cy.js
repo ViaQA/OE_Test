@@ -727,6 +727,15 @@ describe('Check list space flow', () => {
       cy.get('[data_atr="amenity_input"]').should('have.value', listData.custom_amen2)
       cy.get('[data_atr="save_amen"]').click()
 
+      //Check validation about uniq custom amenities
+      cy.get('[data_atr="add_amenity"]').click()
+      cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)
+      cy.get('[data_atr="amenity_input"]').type(listData.custom_amen2)
+      cy.get('[data_atr="save_amen"]').click()
+      cy.get('[data_atr="amenity_input"]').should('have.css', 'border', err_css.err_border)
+      cy.get('[data_atr="amenity_input"]').clear()
+      cy.get('[data_atr="close_amen"]').click()
+
       //Add custom amenities for edit it
       cy.get('[data_atr="add_amenity"]').click()
       cy.get('[data_atr="amenity_input"]').should('have.css','border', signup_css.border_grey_half)

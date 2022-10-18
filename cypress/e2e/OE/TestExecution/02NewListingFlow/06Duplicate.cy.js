@@ -110,7 +110,7 @@ describe('Check duplicate independence space flow', () => {
 
     })
 
-    it('Create space for duplicate', () => {
+    it('Duplicate space flow', () => {
         if (Cypress.config("viewportWidth") < 760 ) {
           cy.get('[data_atr="burger_menu"]').click({force: true })
         }
@@ -137,6 +137,8 @@ describe('Check duplicate independence space flow', () => {
 
         if (Cypress.config("viewportWidth") > 760 ) {
             cy.contains('Save and Exit').click()
+            cy.get('[name="spaceName"]').should('have.css', 'border', err_css.err_border)
+
           }
 
         cy.get('[name="spaceName"]').clear()
