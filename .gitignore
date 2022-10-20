@@ -1,5 +1,5 @@
 \node_modules
-\cypress/videos
+\cypress\videos
 package-lock.json
 yarn-error.log
 \cypress\screenshots
