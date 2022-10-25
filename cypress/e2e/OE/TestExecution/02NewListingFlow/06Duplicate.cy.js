@@ -2,7 +2,7 @@ import { err_css, signup_css } from "../../css"
 import { creds_host, creds_space } from "../../Var"
 import { listData } from "./ListData"
 
-let kindOfSpace = listData.data_event
+let kindOfSpace = listData.data_offce
 describe('Check duplicate independence space flow', () => {
     beforeEach(() => {
         cy.visit(creds_host.host_url)
