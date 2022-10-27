@@ -117,10 +117,10 @@ describe('Check create listing with back navigation', () => {
       cy.get('[data_atr="back_btn"]').click({force: true})
       cy.get('[data_atr="back_btn"]').click({force: true})
       cy.get('[data_atr="back_btn"]').click({force: true})
-      cy.get('[data_atr="back_btn"]').click({force: true})
+      //cy.get('[data_atr="back_btn"]').click({force: true})
 
-      cy.get(listData.data_other).click()
-      cy.get('[type="submit"]').click()
+      //cy.get(listData.data_other).click()
+      //cy.get('[type="submit"]').click()
 
       //Name space
       cy.get('[name="spaceName"]').should('have.value', listData.meetingRoomName + 'Preview' )
@@ -174,7 +174,7 @@ describe('Check create listing with back navigation', () => {
       cy.get('[type="submit"]').click()
       cy.wait(2000)
       cy.contains(listData.meetingRoomName + 'Preview')
-      cy.contains('Other')
+      //cy.contains('Other')
 
       // Check navigation to Duplicate flow 
       cy.get('[data_atr="createSpace"]').click()

@@ -130,9 +130,12 @@ describe('Check duplicate independence space flow', () => {
         cy.get('[data_atr="search_duplicate"]').type(listData.meetingRoomName + 'Duplicate')
         cy.get('[data_atr="duplicate_item"]').click()
 
+        cy.wait(1000)
+
         //Check duplicating data
         cy.get('[name="spaceName"]').should('have.value', listData.meetingRoomName + 'Duplicate' )
         cy.get('[name="spaceDescription"]').should('have.value', listData.meetingRoomDescription + 'Duplicate')
+        cy.get('[type="submit"]').click()
         cy.get('[type="submit"]').should('be.disabled')
 
         if (Cypress.config("viewportWidth") > 760 ) {
