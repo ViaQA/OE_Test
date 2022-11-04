@@ -3,7 +3,7 @@ import { creds_host, creds_space } from "../../Var"
 import { listData } from "./ListData"
 
 let kindOfSpace = listData.data_coworking
-describe('Check duplicate independence space flow', () => {
+describe('Coworking create flow', () => {
     beforeEach(() => {
         cy.visit(creds_host.host_url)
         cy.log(Cypress.config("viewportWidth"))
@@ -18,7 +18,7 @@ describe('Check duplicate independence space flow', () => {
         cy.get('[type="submit"]').click()
       })
 
-    it('Create space for duplicate', () => {
+    it('Create parent coworking space', () => {
       if (Cypress.config("viewportWidth") < 760 ) {
         cy.get('[data_atr="burger_menu"]').click({force: true })
       }

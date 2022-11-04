@@ -11,3 +11,7 @@ $SHELL
 npx cypress run --reporter mochawesome --spec "cypress/e2e/01clearTestData.cy.js,cypress/e2e/OE/TestExecution/" --config viewportWidth=375,viewportHeight=677
 npx cypress run --reporter mochawesome --spec "cypress/e2e/01clearTestData.cy.js,cypress/e2e/OE/TestExecution" --config viewportWidth=1980,viewportHeight=1024
 npx cypress run --reporter mochawesome --spec "cypress/e2e/01clearTestData.cy.js,cypress/e2e/OE/HomePageCustom" --config viewportWidth=1980,viewportHeight=1024
+
+
+
+npx cypress open  --spec "cypress/e2e/01clearTestData.cy.js,cypress/e2e/OE/TestExecution/"

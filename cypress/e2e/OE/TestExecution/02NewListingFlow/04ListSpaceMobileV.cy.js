@@ -250,7 +250,7 @@ describe('Check list space flow', () => {
           cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'MeetingRooms1')
           cy.get('[name="spaceDescription"]').type(listData.meetingRoomDescription)
           cy.get('[name="spaceName"]').should('have.css', 'border', err_css.err_border)
-          cy.xpath('//input[@name="spaceName"]/following-sibling::div').should('have.text', 'Space name' + err_css.err_uniq).should('have.css', 'color', err_css.err_color)
+          cy.xpath('//input[@name="spaceName"]/following-sibling::div').should('have.text', 'Space name' + err_css.err_taken).should('have.css', 'color', err_css.err_color)
 
           cy.get('[name="spaceName"]').clear()
           cy.get('[name="spaceDescription"]').clear()
@@ -258,7 +258,7 @@ describe('Check list space flow', () => {
           cy.get('[name="spaceName"]').type(listData.meetingRoomName + '2')
           cy.get('[name="spaceDescription"]').click()
           cy.get('[name="spaceName"]').should('have.css', 'border', err_css.err_border)
-          cy.xpath('//input[@name="spaceName"]/following-sibling::div').should('have.text', 'Space name' + err_css.err_uniq).should('have.css', 'color', err_css.err_color)
+          cy.xpath('//input[@name="spaceName"]/following-sibling::div').should('have.text', 'Space name' + err_css.err_taken).should('have.css', 'color', err_css.err_color)
 
           cy.get('[name="spaceName"]').clear()
           cy.get('[name="spaceDescription"]').clear()
@@ -593,12 +593,12 @@ describe('Check list space flow', () => {
             // cy.get('[name="file"]').parent().parent().should('have.css', 'border', err_css.err_border)
         cy.contains('You cannot upload more than 10 images at a time.')
         //.should('have.css', 'color', err_css.err_color)
-
+        cy.intercept('POST', '/api/v.1.0/form/images').as('Images')
         cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
             "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
             "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
 
-        cy.wait(13000)
+        cy.wait('@Images').its('response.statusCode').should('eq', 200)
         cy.xpath('//button[@data-id="2"]').click({ multiple: true })
         cy.xpath('//button[text()="Delete"]').click()
 
@@ -680,10 +680,11 @@ describe('Check list space flow', () => {
           "cypress/fixtures/img6.jpg", "cypress/fixtures/logo.jfif", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])              
       cy.contains('You cannot upload more than 10 images at a time.')
       //.should('have.css', 'color', err_css.err_color)
+      cy.intercept('POST', '/api/v.1.0/form/images').as('Images')
       cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
           "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
           "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ])
-      cy.wait(13000)
+      cy.wait('@Images').its('response.statusCode').should('eq', 200)
       cy.xpath('//button[@data-id="2"]').click({ multiple: true })
       cy.xpath('//button[text()="Delete"]').click()
       cy.get('[type="submit"]').click()

@@ -77,10 +77,11 @@ describe('Check duplicate independence space flow', () => {
       cy.get('[type="submit"]').should('be.disabled')
       
       //.should('have.css', 'color', err_css.err_color)
+      cy.intercept('POST', '/api/v.1.0/form/images').as('Images')
       cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
           "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
           "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ],  {subjectType: 'drag-n-drop'})
-      cy.wait(13000)
+      cy.wait('@Images').its('response.statusCode').should('eq', 200)
       cy.get('[data-id="1"]')
       cy.get('[data-id="2"]')
       cy.get('[data-id="3"]')

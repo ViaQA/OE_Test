@@ -11,6 +11,7 @@ let err_required = ' is a required field'
 let err_match = 'Password confirmation does not match'
 let err_phone_least = 'Phone number must be at least 11 characters'
 let err_uniq = ' should be unique'
+let err_taken = ' is already taken'
 let err_end_start = 'End time cannot be before start time.'
 let err_incorect_cred = "Email address or password are incorrect"
 let err_user_notfound = 'User not found!'
@@ -19,7 +20,7 @@ let err_email_taken = 'The email has already been taken'
 
 
 export const err_css = {err_color, err_incorect_cred, err_uniq, err_end_start, err_invemail, err_pass_confirm, err_pass_validation, err_valid, err_least,
-     err_required, err_email_taken,
+     err_required, err_email_taken, err_taken,
      err_border, err_user_notfound, err_match, err_phone_least}
 
 
