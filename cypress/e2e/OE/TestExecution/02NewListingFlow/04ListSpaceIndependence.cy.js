@@ -807,7 +807,6 @@ describe('Check list space flow', () => {
       cy.get('[data_atr="edit_amen_input"]').type(listData.custom_amen_edited)
       cy.get('[data_atr="edit_amen_apply"]').click()
       cy.get('[data_atr="save_modal_edit"]').click()
-      
       //Chose amenities
       cy.contains(listData.custom_amen_edited).click()
       }
