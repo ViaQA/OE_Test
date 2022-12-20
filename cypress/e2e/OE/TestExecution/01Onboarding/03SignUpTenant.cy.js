@@ -162,6 +162,8 @@ describe('Check Sign up form', () => {
 
         cy.get('[data_atr="back_btn"]').click()
         cy.get('[data_atr="back_btn"]').click()
+
+        cy.get('[name="policy"]').click({force: true})
         cy.get('[type="submit"]').click()
         cy.get('[type="submit"]').click()
         

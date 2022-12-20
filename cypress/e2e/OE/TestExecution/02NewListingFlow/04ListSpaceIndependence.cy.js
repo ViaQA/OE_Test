@@ -174,8 +174,8 @@ describe('Check list space flow', () => {
         cy.get('[data_atr="time24Hour"]').should('have.css','border', signup_css.border_grey2px)
         cy.get('[data-qa="end-time"]').type('12')
 
-        cy.get('[data-qa="start-time"]').should('have.css', 'border', signup_css.border_darkblue)
-        cy.get('[data-qa="end-time"]').should('have.css', 'border', signup_css.border_darkblue)
+        //cy.get('[data-qa="start-time"]').should('have.css', 'border', signup_css.border_darkblue)
+        //cy.get('[data-qa="end-time"]').should('have.css', 'border', signup_css.border_darkblue)
 
         cy.get('[data_atr="applyModal"]').click()
         cy.get('[data_atr="Monday"]').children().should('have.value', '24 hours')
@@ -197,8 +197,8 @@ describe('Check list space flow', () => {
         //cy.get('[data-qa="start-time"]').should('have.css','border', err_css.err_border)
         //cy.get('[data-qa="end-time"]').should('have.css','border', err_css.err_border)
         
-        cy.get('[data_atr="applyModal"]').click()
-        cy.contains(err_css.err_end_start)
+        //cy.get('[data_atr="applyModal"]').click()
+        //cy.contains(err_css.err_end_start)
 
 
 
