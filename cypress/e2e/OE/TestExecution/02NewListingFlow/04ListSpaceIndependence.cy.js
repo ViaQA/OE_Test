@@ -12,7 +12,7 @@ describe('Check list space flow', () => {
         cy.log(Cypress.config("viewportWidth"))
         //cy.xpath('//span[text()="Sign in"]/parent::a').click()
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         
         cy.get('[data_atr = "sign_in"]').click({ multiple: true, force: true })
@@ -25,7 +25,7 @@ describe('Check list space flow', () => {
 
     it('Create Meeting rooms Exit at Start page', () => {
         if (Cypress.config("viewportWidth") < 760) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         //data_atr="exit_mobile"
@@ -41,7 +41,7 @@ describe('Check list space flow', () => {
 
     it('Create meeting Exit at first page' , () => {
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
 
@@ -59,7 +59,7 @@ describe('Check list space flow', () => {
 
     it('Create meeting Space Name/Descriptions Validations', () => {
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createSpace"]').click()
@@ -112,7 +112,7 @@ describe('Check list space flow', () => {
     })
     it('Create meeting Step 3 time for Availability ', () => {
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createSpace"]').click()
@@ -235,7 +235,7 @@ describe('Check list space flow', () => {
     })
     it('Create meeting price check step', () => {
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createSpace"]').click()
@@ -334,7 +334,7 @@ describe('Check list space flow', () => {
     it('Create meeting Address step test', () => {
         //Precondition
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createSpace"]').click()
@@ -433,7 +433,7 @@ describe('Check list space flow', () => {
     it('Create meeting capacity step test', () => {
 
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createSpace"]').click()
@@ -521,7 +521,7 @@ describe('Check list space flow', () => {
 
     it('Create meeting uppload photo step test', () => {
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         cy.get('[data_atr="createSpace"]').click()
@@ -616,7 +616,7 @@ describe('Check list space flow', () => {
 
     it('Create custom amenities test', () => {
       if (Cypress.config("viewportWidth") < 760 ) {
-        cy.get('[data_atr="burger_menu"]').click({force: true })
+        cy.get('[data_atr="burger_menu_open"]').click({force: true })
       }
       cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
       cy.get('[data_atr="createSpace"]').click()
@@ -763,14 +763,21 @@ describe('Check list space flow', () => {
       cy.get('[data_atr="edit_0"]').click()
       cy.get('[data_atr="edit_amen_input"]').clear()
       cy.get('[data_atr="edit_amen_input"]').type('Edited NOT apply')
-      cy.get('[data_atr="edit_amen_close"]').click()
+      if (Cypress.config("viewportWidth") > 760 ) {
+        cy.get('[data_atr="edit_amen_close"]').click()
+      }else{
+        cy.get('[data_atr="close_modal"]').click()
+      }
+      
       cy.contains(listData.custom_amen1)
 
       cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.get('[data_atr="edit_0"]').click()
       cy.get('[data_atr="edit_amen_input"]').clear()
       cy.get('[data_atr="edit_amen_input"]').type('Edited NOT apply')
-      cy.get('[data_atr="edit_amen_apply"]').click()
+      if (Cypress.config("viewportWidth") > 760 ) {
+        cy.get('[data_atr="edit_amen_apply"]').click()
+      }
       cy.get('[data_atr="close_modal"]').click()
       cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.contains(listData.custom_amen1)
@@ -779,7 +786,9 @@ describe('Check list space flow', () => {
       cy.get('[data_atr="edit_0"]').click()
       cy.get('[data_atr="edit_amen_input"]').clear()
       cy.get('[data_atr="edit_amen_input"]').type('Edited NOT apply')
+      if (Cypress.config("viewportWidth") > 760 ) {
       cy.get('[data_atr="edit_amen_apply"]').click()
+      }
       cy.get('[data_atr="close_modal_edit"]').click()
       cy.get('[data_atr="edit_Custom"]').click({force: true})
       cy.contains(listData.custom_amen1)
@@ -791,8 +800,9 @@ describe('Check list space flow', () => {
       //need add asertion
       
       //Edit custom amenities
+      if (Cypress.config("viewportWidth") > 760 ) {
       cy.get('[data_atr="edit_Custom"]').click({force: true})
-      cy.get('[data_atr="edit_1"]').click()
+      cy.get('[data_atr="edit_1"]').click({force: true})
       cy.get('[data_atr="edit_amen_input"]').clear()
       cy.get('[data_atr="edit_amen_input"]').type(listData.custom_amen_edited)
       cy.get('[data_atr="edit_amen_apply"]').click()
@@ -800,6 +810,7 @@ describe('Check list space flow', () => {
       
       //Chose amenities
       cy.contains(listData.custom_amen_edited).click()
+      }
       cy.contains(listData.custom_amen1).click()
       cy.get('[data_atr="security"]').click()
 

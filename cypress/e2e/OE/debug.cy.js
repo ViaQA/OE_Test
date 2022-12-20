@@ -15,7 +15,7 @@ describe('Check Sign up form', () => {
         cy.log(Cypress.config("viewportWidth"))
         //cy.xpath('//span[text()="Sign in"]/parent::a').click()
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         
         cy.get('[data_atr = "sign_in"]').click({ multiple: true, force: true })
@@ -26,7 +26,7 @@ describe('Check Sign up form', () => {
 
     it('Duplicate', () => {
       if (Cypress.config("viewportWidth") < 760 ) {
-        cy.get('[data_atr="burger_menu"]').click({force: true })
+        cy.get('[data_atr="burger_menu_open"]').click({force: true })
       }
       cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
       cy.get('[data_atr="duplicateListing"]').click()

@@ -9,7 +9,7 @@ describe('Check Sign in form', () => {
       
       cy.visit(creds_host.host_url)
       if (Cypress.config("viewportWidth") < 760 ) {
-        cy.get('[data_atr="burger_menu"]').click({force: true })
+        cy.get('[data_atr="burger_menu_open"]').children().click({multiple: true},{force: true })
       }
       cy.get('[data_atr = "sign_in"]').click({ multiple: true, force: true })
     })

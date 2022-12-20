@@ -9,7 +9,7 @@ describe('Coworking create flow', () => {
         cy.log(Cypress.config("viewportWidth"))
         //cy.xpath('//span[text()="Sign in"]/parent::a').click()
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         
         cy.get('[data_atr = "sign_in"]').click({ multiple: true, force: true })
@@ -20,7 +20,7 @@ describe('Coworking create flow', () => {
 
     it('Create parent coworking space', () => {
       if (Cypress.config("viewportWidth") < 760 ) {
-        cy.get('[data_atr="burger_menu"]').click({force: true })
+        cy.get('[data_atr="burger_menu_open"]').click({force: true })
       }
       cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
       cy.get('[data_atr="createSpace"]').click()
@@ -114,7 +114,7 @@ describe('Coworking create flow', () => {
 
     it('Coworking space flow', () => {
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         

@@ -9,7 +9,7 @@ describe('Check duplicate independence space flow', () => {
         cy.log(Cypress.config("viewportWidth"))
         //cy.xpath('//span[text()="Sign in"]/parent::a').click()
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         
         cy.get('[data_atr = "sign_in"]').click({ multiple: true, force: true })
@@ -20,7 +20,7 @@ describe('Check duplicate independence space flow', () => {
 
     it('Create space for duplicate', () => {
       if (Cypress.config("viewportWidth") < 760 ) {
-        cy.get('[data_atr="burger_menu"]').click({force: true })
+        cy.get('[data_atr="burger_menu_open"]').click({force: true })
       }
       cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
       cy.get('[data_atr="createSpace"]').click()
@@ -113,7 +113,7 @@ describe('Check duplicate independence space flow', () => {
 
     it('Duplicate space flow', () => {
         if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu"]').click({force: true })
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
         }
         cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
         

@@ -11,7 +11,7 @@ describe('Check Sign up form', () => {
     beforeEach(() => {
         cy.visit(creds_host.host_url)
         if (Cypress.config("viewportWidth") < 760 ) {
-            cy.get('[data_atr="burger_menu"]').click({force: true })
+            cy.get('[data_atr="burger_menu_open"]').click({force: true })
             cy.get('[data_atr="burger_signup"]').click({ multiple: true, force: true })
             
           }else{
@@ -37,7 +37,7 @@ describe('Check Sign up form', () => {
     
     it( "Test for check init state after become a host button", () => {
         if (Cypress.config("viewportWidth") < 760 ) {
-            cy.get('[data_atr="burger_menu"]').click({force: true })
+            cy.get('[data_atr="burger_menu_open"]').click({force: true })
             cy.get('[data_atr="burger_becomehost"]').click({ multiple: true, force: true })
         }else{
             cy.get('[data_atr="becomeHost"]').click({ multiple: true, force: true }) 
