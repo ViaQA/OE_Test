@@ -56,6 +56,25 @@ let custom_amen1 = "first custom amenities"
 let custom_amen2 = "deleted custom amenities"
 let custom_amen3 = "custom amenities editable"
 let custom_amen_edited = "edited custom amen"
+
+let hotdesk_qty = "21"
+let hotdesk_name = "hotdesk Cypress test"
+let hotdesk_description = "hotdesk Cypress test desk"
+
+let proffice_name = "private office Cypress test"
+let proffice_description = "private office Cypress test desk"
+
+let prmeetroom_name = "private meeting rooms Cypress test"
+let prmeetroom_description = "private meeting rooms Cypress test desk"
+
+let espace_name = "event space rooms Cypress test"
+let espace_description = "event space rooms Cypress test desk"
+
+let passes_qty_d = "12"
+let passes_qty_m = "13"
+let passes_d_price = "15"
+let passes_m_price = "30"
+
 export const listData = {home_text, step1,step2,step3,step4,step5,
     addres_lakesucces, addres_queens_city, addres_queens_num, addres_queens_state,
     addres_queens_street, address_queens, address_queens_zip,
@@ -64,5 +83,8 @@ export const listData = {home_text, step1,step2,step3,step4,step5,
     custom_start_time, addres_lakesucces, addres_lakesucces_city, addres_lakesucces_num,
     addres_lakesucces_street ,pricing_text , apt, addres_lakesucces_zip,
     data_event, data_meeting, data_offce, data_other, data_retail,
+    hotdesk_description, hotdesk_name, hotdesk_qty, proffice_description, proffice_name,
+    prmeetroom_description, prmeetroom_name, espace_description, espace_name,
+    passes_d_price, passes_m_price, passes_qty_d, passes_qty_m,
     custom_amen1, custom_amen2, custom_amen3, custom_amen_edited, data_coworking,
     meetingRoomName, meetingRoomDescription, square_ft1, capacity_1}
