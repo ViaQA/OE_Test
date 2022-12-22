@@ -3,7 +3,7 @@ import { creds_host, creds_space } from "../../Var"
 import { listData } from "./ListData"
 
 let kindOfSpace = listData.data_coworking
-describe('Coworking create flow', () => {
+describe('Full Coworking create flow', () => {
     beforeEach(() => {
         cy.visit(creds_host.host_url)
         cy.log(Cypress.config("viewportWidth"))
@@ -99,26 +99,28 @@ describe('Coworking create flow', () => {
       cy.wait('@Form').its('response.statusCode').should('eq', 200)
       cy.contains(listData.step7)
 
+
+      //Back navigation
       cy.get('[data_atr="back_btn"]').click({force: true})
       cy.get('[data_atr="back_btn"]').click({force: true})
       cy.get('[data_atr="back_btn"]').click({force: true})
       cy.get('[data_atr="back_btn"]').click({force: true})
       cy.get('[data_atr="back_btn"]').click({force: true})
       
-      //Name space
+      //Name space after back navigation
       cy.get('[name="spaceName"]').should('have.value', listData.meetingRoomName + 'Coworking' )
       cy.get('[name="spaceDescription"]').should('have.value', listData.meetingRoomDescription + 'Coworking')
       cy.get('[name="spaceName"]').clear()
       cy.get('[name="spaceName"]').type(listData.meetingRoomName + 'Coworking1')
       cy.get('[type="submit"]').click()
 
-       //Availability time
+       //Availability time after back navigation
        cy.get('[data_atr="Monday"]').children().should('have.value', '24 hours')
        cy.get('[data_atr="Thursday"]').children().should('have.value', 'closed')
        cy.get('[data_atr="Wednesday"]').children().should('have.value', '10:00 AM - 02:00 PM')
        cy.get('[type="submit"]').click()
 
-       //Address
+       //Address after back navigation
       //!!!!!!cy.get('[name="streetAddress"]').should('have.value', listData.addres_queens_num + ' ' + listData.addres_queens_street)
       cy.get('[name="streetAddress"]').should('have.css', 'border', signup_css.border_darkblue)
       cy.get('[name="city"]').should('have.value', listData.addres_queens_city)
@@ -128,7 +130,7 @@ describe('Coworking create flow', () => {
       //cy.get('[name="apt"]').should('have.value', listData.apt)
       cy.get('[type="submit"]').click()
 
-      //Photo
+      //Photo after back navigation
       cy.get('[data-id="1"]')
       cy.get('[data-id="2"]')
       cy.get('[data-id="3"]')
@@ -141,7 +143,7 @@ describe('Coworking create flow', () => {
       cy.get('[data-id="10"]')
       cy.get('[type="submit"]').click()
 
-      //Amenities
+      //Amenities after back navigation
       cy.get('[data_atr="access"]').should('have.css', 'border', signup_css.border_violet1px)
       cy.get('[type="submit"]').click()
 
@@ -174,20 +176,13 @@ describe('Coworking create flow', () => {
       cy.get('[name="capturePrice"]').type(listData.securityDep)
 
       cy.intercept('POST', '/api/v.1.0/form/images').as('Images')
-      cy.get('[name="file"]').parent().selectFile(["cypress/fixtures/Denver.png", "cypress/fixtures/Birmingham.png", 
-          "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", "cypress/fixtures/img3.png", "cypress/fixtures/img4.jpg", "cypress/fixtures/img5.png", 
-          "cypress/fixtures/img6.jpg", "cypress/fixtures/StarWars.jpg", "cypress/fixtures/img7.jpg" ],  {subjectType: 'drag-n-drop'})
+      cy.get('[name="file"]').parent().selectFile([ "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", 
+        "cypress/fixtures/img3.png", "cypress/fixtures/img6.jpg",  ],  {subjectType: 'drag-n-drop'})
       cy.wait('@Images').its('response.statusCode').should('eq', 200)
       cy.get('[data-id="1"]')
       cy.get('[data-id="2"]')
       cy.get('[data-id="3"]')
       cy.get('[data-id="4"]')
-      cy.get('[data-id="5"]')
-      cy.get('[data-id="6"]')
-      cy.get('[data-id="7"]')
-      cy.get('[data-id="8"]')
-      cy.get('[data-id="9"]')
-      cy.get('[data-id="10"]')
       cy.intercept('POST', '/api/v.1.0/form').as('Form')
       cy.get('[type="submit"]').click()
       cy.wait('@Form').its('response.statusCode').should('eq', 200)
@@ -210,142 +205,139 @@ describe('Coworking create flow', () => {
       cy.get('[name="pricing.monthly"]').type(listData.priceMonthly)
       cy.get('[name="capturePrice"]').type(listData.securityDep)
 
-      ///need continue
-
-
-
-
-
-
-
-
+      cy.get('[name="square"]').type(listData.square_ft1)
+      cy.get('[name="square"]').should('have.value',listData.square_ft1 + ' sqft.')
       
-
-      //value="private office"
-      //value="private meeting rooms"
-      //value="event space"
-      //value="membership passes"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      if (Cypress.config("viewportWidth") < 760 ) {
-        cy.get('[data_atr="save_draft"]').click({force: true })
-      }else{
-      cy.contains('Save and Exit').click()
-      }
-
-      cy.wait(2000)
-      cy.get('[data_atr="draftSpace"]').click()
-      cy.contains(listData.meetingRoomName + 'Coworking')
-
-    })
-
-    it('Coworking space flow', () => {
-        if (Cypress.config("viewportWidth") < 760 ) {
-          cy.get('[data_atr="burger_menu_open"]').click({force: true })
-        }
-        cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
-        
-        cy.get('[data_atr="createSpace"]').click()
-        cy.get('[data_atr="duplicateListing"]').click({force: true})
-        cy.get('[data_atr="continue_modal_btn"]').click()
-        
-        cy.get('[data_atr="back_btn"]').click({force: true})
-
-        cy.get('[data_atr="createSpace"]').click()
-        cy.get('[data_atr="duplicateListing"]').click({force: true})
-        cy.get('[data_atr="continue_modal_btn"]').click()
-
-        //Search space for duplicating
-        cy.get('[data_atr="search_duplicate"]').type(listData.meetingRoomName + 'Coworking')
-        cy.get('[data_atr="duplicate_item"]').click()
-
-        cy.wait(1000)
-
-        //Check duplicating data
-        cy.get('[name="spaceName"]').should('have.value', listData.meetingRoomName + 'Coworking' )
-        cy.get('[name="spaceDescription"]').should('have.value', listData.meetingRoomDescription + 'Coworking')
-        cy.get('[type="submit"]').click({force: true})
-        cy.get('[type="submit"]').should('be.disabled')
-
-        if (Cypress.config("viewportWidth") > 760 ) {
-            cy.contains('Save and Exit').click()
-            cy.get('[name="spaceName"]').should('have.css', 'border', err_css.err_border)
-
-          }
-
-        cy.get('[name="spaceName"]').clear()
-        cy.get('[name="spaceName"]').type(listData.meetingRoomName +'Coworkingd')
-        cy.get('[type="submit"]').click()
-        //Availability time
-        cy.get('[data_atr="Monday"]').children().should('have.value', '24 hours')
-        cy.get('[data_atr="Thursday"]').children().should('have.value', 'closed')
-        cy.get('[data_atr="Wednesday"]').children().should('have.value', '10:00 AM - 02:00 PM')
-        cy.get('[type="submit"]').click()
-        
-        //Price
-        // cy.get('[name="pricing.hourly"]').should('have.value', '$' + listData.priceHourly)
-        // cy.get('[name="pricing.daily"]').should('have.value', '$' + listData.priceDaily)
-        // cy.get('[name="pricing.monthly"]').should('have.value', '$' + listData.priceMonthly)
-        // cy.get('[name="capturePrice"]').should('have.value', '$' + listData.securityDep)
-        // cy.get('[type="submit"]').click()
-
-        //Address
-        //!!!!!!cy.get('[name="streetAddress"]').should('have.value', listData.addres_queens_num + ' ' + listData.addres_queens_street)
-        cy.get('[name="city"]').should('have.value', listData.addres_queens_city)        
-        cy.get('[name="zipCode"]').should('have.value', listData.address_queens_zip)    
-        //cy.get('[name="apt"]').should('have.value', listData.apt)
-        cy.get('[type="submit"]').click()
-
-        //Capacity
-        // cy.get('[name="square"]').should('have.value',listData.square_ft1 + ' sqft.')
-        // cy.get('[data-value="50-100"]').should('have.css', 'background-color', signup_css.violet_800)
-        // cy.get('[type="submit"]').click()
-
-        //Photo
-        cy.get('[data-id="1"]')
-        cy.get('[data-id="2"]')
-        cy.get('[data-id="3"]')
-        cy.get('[data-id="4"]')
-        cy.get('[data-id="5"]')
-        cy.get('[data-id="6"]')
-        cy.get('[data-id="7"]')
-        cy.get('[data-id="8"]')
-        cy.get('[data-id="9"]')
-        cy.get('[data-id="10"]')
-        cy.get('[type="submit"]').click()
-
-        //Amenities
-        cy.get('[data_atr="access"]').should('have.css', 'border', signup_css.border_violet1px)
-        cy.get('[type="submit"]').click()
-        cy.get('[type="submit"]').click()
-        cy.wait(2000)
-        //Finish
-        cy.get('[data_atr="pendingSpace"]').click()
-        cy.contains(listData.meetingRoomName + 'Coworkingd')
-        cy.get('[data_atr="draftSpace"]').click()
-        cy.get('[data_atr="delete_space"]').click()
-        cy.get('[data_atr="close_modal_btn"]').click()
-        cy.get('[data_atr="delete_space"]').click()
-        cy.get('[data_atr="close_modal"]').click()
-        cy.get('[data_atr="delete_space"]').click()
-        cy.get('[data_atr="continue_modal_btn"]').click()
-
-      
+      cy.contains('Enter capacity of your space').click()
+      cy.contains('500+').click()
     
+      cy.intercept('POST', '/api/v.1.0/form/images').as('Images')
+      cy.get('[name="file"]').parent().selectFile([ "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", 
+        "cypress/fixtures/img3.png", "cypress/fixtures/img6.jpg",  ],  {subjectType: 'drag-n-drop'})
+      cy.wait('@Images').its('response.statusCode').should('eq', 200)
+      cy.get('[data-id="1"]')
+      cy.get('[data-id="2"]')
+      cy.get('[data-id="3"]')
+      cy.get('[data-id="4"]')
+
+      cy.get('[data_atr="fullyFurnished"]').click()
+      cy.get('[data_atr="fullyFurnished"]').should('have.css', 'border', signup_css.border_violet1px)
+
+      cy.get('[type="submit"]').click()
+
+      cy.get('[data_atr="back_btn"]').click({force: true})
+      cy.get('[data_atr="security"]').click()
+
+      cy.intercept('POST', '/api/v.1.0/form-edit/*').as('Edit')
+      cy.get('[type="submit"]').click()
+      cy.wait('@Edit').its('response.statusCode').should('eq', 200)
+
+      cy.contains(listData.proffice_name)
+
+      //private meeting rooms
+      cy.get('[data_atr="addSubspace"]').click()
+      cy.get('[data_atr="createListing"]').click()
+      cy.get('[data_atr="continue_modal_btn"]').click()
+      cy.get('[value="private meeting rooms"]').click({force: true})
+      cy.get('[type="submit"]').click()
+
+      cy.get('[name="spaceName"]').type(listData.prmeetroom_name)
+      cy.get('[name="spaceDescription"]').type(listData.prmeetroom_description)
+
+      cy.get('[data_atr="Hourly"]').click({force: true})
+      cy.get('[name="pricing.hourly"]').type(listData.priceHourly)
+      cy.get('[data_atr="Daily"]').click({force: true})
+      cy.get('[name="pricing.daily"]').type(listData.priceDaily)
+
+      cy.get('[name="square"]').type(listData.square_ft1)
+      cy.get('[name="square"]').should('have.value',listData.square_ft1 + ' sqft.')
+      
+      cy.contains('Enter capacity of your space').click()
+      cy.contains('500+').click()
+
+      cy.intercept('POST', '/api/v.1.0/form/images').as('Images')
+      cy.get('[name="file"]').parent().selectFile([ "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", 
+        "cypress/fixtures/img3.png", "cypress/fixtures/img6.jpg",  ],  {subjectType: 'drag-n-drop'})
+      cy.wait('@Images').its('response.statusCode').should('eq', 200)
+      
+      cy.get('[data-id="1"]')
+      cy.get('[data-id="2"]')
+      cy.get('[data-id="3"]')
+      cy.get('[data-id="4"]')
+
+      cy.get('[data_atr="fullyFurnished"]').click()
+      cy.get('[data_atr="fullyFurnished"]').should('have.css', 'border', signup_css.border_violet1px)
+
+      cy.get('[type="submit"]').click()
+
+      //event space
+      cy.get('[data_atr="addSubspace"]').click()
+      cy.get('[data_atr="createListing"]').click()
+      cy.get('[data_atr="continue_modal_btn"]').click()
+      cy.get('[value="event space"]').click({force: true})
+      cy.get('[type="submit"]').click()
+
+      cy.get('[name="spaceName"]').type(listData.espace_name)
+      cy.get('[name="spaceDescription"]').type(listData.espace_description)
+
+      cy.get('[data_atr="Hourly"]').click({force: true})
+      cy.get('[name="pricing.hourly"]').type(listData.priceHourly)
+      cy.get('[data_atr="Daily"]').click({force: true})
+      cy.get('[name="pricing.daily"]').type(listData.priceDaily)
+
+      cy.get('[name="square"]').type(listData.square_ft1)
+      cy.get('[name="square"]').should('have.value',listData.square_ft1 + ' sqft.')
+      
+      cy.contains('Enter capacity of your space').click()
+      cy.contains('500+').click()
+
+      cy.intercept('POST', '/api/v.1.0/form/images').as('Images')
+      cy.get('[name="file"]').parent().selectFile([ "cypress/fixtures/img1.jpg", "cypress/fixtures/img9.jpeg", 
+        "cypress/fixtures/img3.png", "cypress/fixtures/img6.jpg",  ],  {subjectType: 'drag-n-drop'})
+      cy.wait('@Images').its('response.statusCode').should('eq', 200)
+      cy.get('[data-id="1"]')
+      cy.get('[data-id="2"]')
+      cy.get('[data-id="3"]')
+      cy.get('[data-id="4"]')
+
+      cy.get('[data_atr="fullyFurnished"]').click()
+      cy.get('[data_atr="fullyFurnished"]').should('have.css', 'border', signup_css.border_violet1px)
+
+      cy.get('[type="submit"]').click()
+
+      //membership passes
+      cy.get('[data_atr="addSubspace"]').click()
+      cy.get('[data_atr="createListing"]').click()
+      cy.get('[data_atr="continue_modal_btn"]').click()
+      cy.get('[value="membership passes"]').click({force: true})
+      cy.get('[type="submit"]').click()
+
+      cy.get('[data_atr="Daily"]').click({force: true})
+      cy.get('[name="price_per_day"]').type(listData.passes_d_price)
+      cy.get('[name="available_day_quantity"]').type(listData.passes_qty_d)
+      cy.get('[data_atr="Monthly"]').click({force: true})
+      cy.get('[name="price_per_month"]').type(listData.passes_m_price)
+      cy.get('[name="available_month_quantity"]').type(listData.passes_qty_m)
+
+      cy.intercept('POST', '/api/v.1.0/form').as('Form')
+      cy.get('[type="submit"]').click()
+      cy.wait('@Form').its('response.statusCode').should('eq', 200)
+
+      cy.get('[data_atr="back_btn"]').click({force: true})
+      cy.get('[type="submit"]').click({force: true})
+      cy.get('[type="submit"]').click({force: true})
+
+      cy.get('[data_atr="preview_save"]').click()
+
+
+      cy.intercept('POST', '/api/v.1.0/form-edit/*').as('Edit')
+      cy.get('[type="submit"]').click()
+      cy.wait('@Edit').its('response.statusCode').should('eq', 200)
+
+      cy.contains('Meeting room name CypressCoworking')
+
+
     })
+
+    
 })

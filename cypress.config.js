@@ -17,7 +17,7 @@ module.exports = defineConfig({
   projectId: 'd6s6gb',
   e2e: {
     experimentalSessionAndOrigin: true,
-    defaultCommandTimeout: 10000,
+    defaultCommandTimeout: 20000,
     setupNodeEvents(on, config) {
     
       // implement node event listeners here
