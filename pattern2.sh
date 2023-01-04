@@ -14,4 +14,4 @@ npx cypress run --reporter mochawesome --spec "cypress/e2e/01clearTestData.cy.js
 
 
 
-npx cypress open  --spec "cypress/e2e/01clearTestData.cy.js,cypress/e2e/OE/TestExecution/"
+npx cypress run --spec "cypress/e2e/01clearTestData.cy.js,cypress/e2e/OE/TestExecution/"
