@@ -1,8 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+/node_modules
 .vscode
 .idea
 # dependencies
-/node_modules
 /OE_Test/node_modules
 \videos
 package-lock.json
