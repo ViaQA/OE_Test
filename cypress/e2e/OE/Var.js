@@ -21,7 +21,6 @@
     let password_bad = 'Qwerty123@111'
     let last_name = 'Host_Autotest'
     let first_name = 'Cypress'
-    let team_name = 'TN1rtyuiopasdfghj333'
     let position = 'Pwertyuiopasdfghj256'
     let host_url = 'http://localhost:3000' 
     let cron_script_payment = 'https://stage.officeexchange.com/api/v.1.0/cron-notifications'
@@ -31,7 +30,7 @@
 
     export const creds_host = {email_host,email_restore,email_notfount, password_new, email,email_bad, password,password_bad, 
         roleGuest, roleHost, clearTestData, email_duplicate,
-        last_name, first_name, team_name, position, host_url, cron_script_payment} 
+        last_name, first_name, position, host_url, cron_script_payment} 
 
 
     // Creds for space listing

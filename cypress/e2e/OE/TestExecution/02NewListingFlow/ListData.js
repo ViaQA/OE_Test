@@ -7,7 +7,7 @@ let data_other = '[data_atr="otherSpace"]'
 let data_coworking = '[data_atr="coworking"]'
 
 
-let home_text = "Book short term spaces that work for you when you need it."
+let home_text = "Short-Term Office Space Rental Solutions"
 let pricing_text = "Set your pricing for hourly / daily / and monthly bookings. Only monthly bookings can have a security deposit."
 let step1 = '1/'
 let step2 = '2/'

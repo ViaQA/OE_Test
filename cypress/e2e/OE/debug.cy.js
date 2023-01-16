@@ -25,10 +25,12 @@ describe('Check Sign up form', () => {
       })
 
     it('Duplicate', () => {
-      if (Cypress.config("viewportWidth") < 760 ) {
-        cy.get('[data_atr="burger_menu_open"]').click({force: true })
-      }
-      cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+       if (Cypress.config("viewportWidth") < 760 ) {
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
+          cy.get('[data_atr="listSpaceM"]').parent().click()
+        }else{
+          cy.get('[data_atr="listSpace"]').parent().click()
+        }
       cy.get('[data_atr="duplicateListing"]').click()
 
       cy.get(kindOfSpace).click()

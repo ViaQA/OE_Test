@@ -20,10 +20,12 @@ describe('Check create listing with back navigation', () => {
       })
 
     it('Create draft space then back navigation check', () => {
-      if (Cypress.config("viewportWidth") < 760 ) {
-        cy.get('[data_atr="burger_menu_open"]').click({force: true })
-      }
-      cy.get('[data_atr="listSpace"]').click({ multiple: true, force: true})
+       if (Cypress.config("viewportWidth") < 760 ) {
+          cy.get('[data_atr="burger_menu_open"]').click({force: true })
+          cy.get('[data_atr="listSpaceM"]').parent().click()
+        }else{
+          cy.get('[data_atr="listSpace"]').parent().click()
+        }
       cy.get('[data_atr="createSpace"]').click()
         cy.get('[data_atr="createListing"]').click()
         cy.get('[data_atr="continue_modal_btn"]').click()
@@ -173,7 +175,9 @@ describe('Check create listing with back navigation', () => {
       cy.get('[data_atr="access"]').should('have.css', 'border', signup_css.border_violet1px)
       cy.get('[type="submit"]').click()
       cy.get('[type="submit"]').click()
-      cy.wait(2000)
+
+      //cy.wait(2000)
+      cy.get('[data_atr="approvedSpace"]').click()
       cy.contains(listData.meetingRoomName + 'Preview')
       //cy.contains('Other')
 
