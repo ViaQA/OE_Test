@@ -177,7 +177,7 @@ describe('Check create listing with back navigation', () => {
       cy.get('[type="submit"]').click()
 
       //cy.wait(2000)
-      cy.get('[data_atr="approvedSpace"]').click()
+      cy.get('[data_atr="pendingSpace"]').click()
       cy.contains(listData.meetingRoomName + 'Preview')
       //cy.contains('Other')
 
