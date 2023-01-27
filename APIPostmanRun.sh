@@ -1,5 +1,4 @@
 #!/bin/bash
-
 postman login --with-api-key PMAK-63c7ebdb162d610df17d1dff-XXXX
 postman collection run 25307064-d0d1c86c-8f08-4ee9-90c0-630d4e0eacc3 -i 25307064-e48109ff-3798-4fd7-9dee-93550b32c904
 postman collection run 25307064-d0d1c86c-8f08-4ee9-90c0-630d4e0eacc3 -i 25307064-e8ae916c-a6ca-49f1-8ecb-ca06596652bf
