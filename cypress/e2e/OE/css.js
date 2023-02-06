@@ -42,11 +42,13 @@ let text_signup_guest = 'Book short-term spaces'
 let text_signup_guest_term = 'Sign up for The Office Exchange and and start booking short-term spaces that fit your needs.'
 let text_signup_host = 'List Your Spaces'
 let text_signup_host_term = 'Sign up for The Office Exchange and list your commercial spaces for short term bookings.'
+let text_landing = "Exchange Your Empty Real Estate Space for a Paycheck"
+let text_land_topic = "The benefits of becoming a host on The Office Exchange:"
 
 export const signup_css = {text_color_darkblue, text_signup_guest, 
      text_color_grey, border_grey2px, dark_blue_day, border_grey_half,
      border_darkblue, border_grey, white_color, violet_800,border_violet1px,
-     border_violet2px, text_signup_guest_term, text_signup_host, text_signup_host_term}
+     border_violet2px, text_signup_guest_term, text_signup_host, text_signup_host_term,text_landing, text_land_topic}
 
 
 

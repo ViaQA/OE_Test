@@ -42,11 +42,9 @@ describe('Check Sign up form', () => {
         }else{
             cy.get('[data_atr="becomeHost"]').click({ multiple: true, force: true }) 
         }
-        //verify init state after become a host
-        cy.contains(signup_css.text_signup_host).should('have.css', 'color', signup_css.text_color_darkblue)
-        cy.contains(signup_css.text_signup_host_term).should('have.css', 'color', signup_css.text_color_darkblue)
-        cy.get('[name="role"]').should('have.value', creds_host.roleHost)
-        cy.url().should('include', '/registration-host')
+        //verify init state after become a host (landing page)
+        cy.contains(signup_css.text_land_topic).should('have.css', 'color', signup_css.text_color_darkblue)
+        cy.url().should('include', '/become-a-host')
     })
 
     it( "Test sign up empty validation", ()=>{
