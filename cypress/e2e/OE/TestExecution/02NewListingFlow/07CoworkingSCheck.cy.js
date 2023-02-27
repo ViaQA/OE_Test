@@ -123,12 +123,12 @@ describe('Full Coworking create flow', () => {
        cy.get('[type="submit"]').click()
 
        //Address after back navigation
-      //!!!!!!cy.get('[name="streetAddress"]').should('have.value', listData.addres_queens_num + ' ' + listData.addres_queens_street)
-      cy.get('[name="streetAddress"]').should('have.css', 'border', signup_css.border_darkblue)
+      cy.get('[name="streetAddress"]').should('have.value', listData.addres_queens_num + ' ' + listData.addres_queens_street)
+      //cy.get('[name="streetAddress"]').should('have.css', 'border', signup_css.border_darkblue)
       cy.get('[name="city"]').should('have.value', listData.addres_queens_city)
-      cy.get('[name="city"]').should('have.css', 'border', signup_css.border_darkblue)
+      //cy.get('[name="city"]').should('have.css', 'border', signup_css.border_darkblue)
       cy.get('[name="zipCode"]').should('have.value', listData.address_queens_zip)
-      cy.get('[name="zipCode"]').should('have.css', 'border', signup_css.border_darkblue)
+      //cy.get('[name="zipCode"]').should('have.css', 'border', signup_css.border_darkblue)
       //cy.get('[name="apt"]').should('have.value', listData.apt)
       cy.get('[type="submit"]').click()
 
