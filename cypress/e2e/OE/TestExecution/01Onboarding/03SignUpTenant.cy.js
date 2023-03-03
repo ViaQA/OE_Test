@@ -40,7 +40,8 @@ describe('Check Sign up form', () => {
             cy.get('[data_atr="burger_menu_open"]').click({force: true })
             cy.get('[data_atr="burger_becomehost"]').click({ multiple: true, force: true })
         }else{
-            cy.get('[data_atr="becomeHost"]').click({ multiple: true, force: true }) 
+            cy.get('[data_atr="becomeHost"]').click({ multiple: true, force: true })
+            cy.contains("List your space").click({multiple: true})
         }
         //verify init state after become a host
         cy.contains(signup_css.text_signup_host).should('have.css', 'color', signup_css.text_color_darkblue)
