@@ -6,9 +6,11 @@
 /OE_Test/node_modules
 \videos
 package-lock.json
+package.json
 yarn-error.log
 \cypress\screenshots
 \mochawesome-report
 \screenshots
 /node_modules
 /cypress/videos
+yarn.lock
